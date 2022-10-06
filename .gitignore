@@ -7,7 +7,6 @@
 *__recovery
 *__history
 *.dsk
-*.dpr
 *.groupproj
 *.dsk
 *.~dsk
