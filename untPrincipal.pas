@@ -77,6 +77,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure lvListaStoreItemClick(const Sender: TObject;
       const AItem: TListViewItem);
+    procedure Rectangle4Click(Sender: TObject);
 
 
   private
@@ -154,7 +155,27 @@ begin
     untClientes := TfmClientes.Create(Application);
     untClientes.Show;
 end;
-          // Funcion de icono flecha backMenu
+
+
+// En el menu desplegable se ejecuta el boton "CERRAR SESION
+
+procedure TFmPrincipal.Rectangle4Click(Sender: TObject);
+begin
+
+    MessageDlg('¿Desea salir de la aplicaci?',
+                   System.UITypes.TMsgDlgType.mtConfirmation, FMx.Dialogs.mbYesNo, 0,
+                   procedure(const AResult: System.UITypes.TModalResult)
+                     begin
+                     case AResult of
+                     mrYES:   Close;
+                     mrNo:    Exit;
+                     else     Exit;
+                     end;
+                 end);
+
+end;
+
+// Funcion de icono flecha backMenu
 procedure TFmPrincipal.backMenuClick(Sender: TObject);
 begin
     OpenMenu(False);

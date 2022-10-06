@@ -1838,6 +1838,7 @@ object FmPrincipal: TFmPrincipal
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFF4A924D
+      OnClick = Rectangle4Click
       object Label8: TLabel
         Align = Center
         AutoSize = True
@@ -3213,7 +3214,6 @@ object FmPrincipal: TFmPrincipal
     Top = 144
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
