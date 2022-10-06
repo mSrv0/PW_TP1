@@ -5,7 +5,7 @@ object DataModule1: TDataModule1
   object Conexion: TFDConnection
     ConnectionName = 'Conexion'
     Params.Strings = (
-      'Database=C:\PuenteWeb\MyM_TP\DataBase-Tienda\e-commerce.db'
+      'Database=C:\PuenteWeb\PW_TP1\DataBase-Tienda\e-commerce.db'
       'LockingMode=Normal'
       'DriverID=sQLite')
     LoginPrompt = False
