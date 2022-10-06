@@ -1,0 +1,15 @@
+.svn
+*.dcu
+*.identcache
+*.local
+*Android
+*.exe
+*__recovery
+*__history
+*.dsk
+*.groupproj
+*.dpr
+*.dproj
+*.dsk
+*.~dsk
+Win32/*
