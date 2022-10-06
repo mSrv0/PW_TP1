@@ -7,9 +7,8 @@
 *__recovery
 *__history
 *.dsk
-*.groupproj
 *.dpr
-*.dproj
+*.groupproj
 *.dsk
 *.~dsk
 Win32/*
