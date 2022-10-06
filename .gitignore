@@ -13,3 +13,4 @@
 *.dsk
 *.~dsk
 Win32/*
+*.deployproj
