@@ -1582,7 +1582,6 @@ object FmPrincipal: TFmPrincipal
     Size.Height = 503.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    Visible = False
     object Image4: TImage
       MultiResBitmap.Height = 128
       MultiResBitmap.Width = 128
@@ -1809,6 +1808,7 @@ object FmPrincipal: TFmPrincipal
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFF11AC0A
+      OnClick = Rectangle3Click
       object Label7: TLabel
         Align = Center
         AutoSize = True
@@ -3214,11 +3214,12 @@ object FmPrincipal: TFmPrincipal
     Top = 144
   end
   object ClientDataSet1: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
-    Left = 248
-    Top = 232
+    Left = 168
+    Top = 384
     object ClientDataSet1id: TAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -3257,14 +3258,14 @@ object FmPrincipal: TFmPrincipal
   object BindSourceDB1: TBindSourceDB
     DataSet = ClientDataSet1
     ScopeMappings = <>
-    Left = 160
-    Top = 240
+    Left = 96
+    Top = 392
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 52
-    Top = 245
+    Left = 20
+    Top = 389
     object LinkFillControlToField1: TLinkFillControlToField
       Category = 'Quick Bindings'
       Control = lvListaStore

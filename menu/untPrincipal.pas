@@ -78,6 +78,7 @@ type
     procedure lvListaStoreItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure Rectangle4Click(Sender: TObject);
+    procedure Rectangle3Click(Sender: TObject);
 
 
   private
@@ -94,7 +95,7 @@ var
   FmPrincipal: TFmPrincipal;
 
 implementation
- uses UnitLogin, untClientes;
+ uses UnitLogin, untClientes, untArticulos;
 {$R *.fmx}
 
 // Se agregan valores de Lista clientes
@@ -157,6 +158,13 @@ begin
 end;
 
 
+procedure TFmPrincipal.Rectangle3Click(Sender: TObject);
+var untArticulos :  TFrArticulos;
+begin
+   untArticulos := TFrArticulos.Create(Application);
+   untArticulos.Show;
+end;
+
 // En el menu desplegable se ejecuta el boton "CERRAR SESION
 
 procedure TFmPrincipal.Rectangle4Click(Sender: TObject);
@@ -184,6 +192,7 @@ begin
                            TInterpolationType.Circular);
      RecMenu.Tag := 0;
 end;
+
 
 procedure TFmPrincipal.FormCreate(Sender: TObject);
 begin
