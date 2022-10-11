@@ -205,6 +205,7 @@
     <PropertyGroup Condition="'$(Cfg_1_Android)'!=''">
         <VerInfo_Build>1</VerInfo_Build>
         <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
+        <DCC_UnitSearchPath>C:\PuenteWeb\PW_TP1\menu;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -235,27 +236,19 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UnitLogin.pas">
-            <Form>FLogin</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="untPrincipal.pas">
-            <Form>FmPrincipal</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="untClientes.pas">
-            <Form>fmClientes</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="Frames\Frame.ClienteCard.pas">
             <Form>ClienteCard</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="moduloDatos_u.pas">
+        <DCCReference Include="dm_manager\moduloDatos_u.pas">
             <Form>DataModule1</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="login\UnitLogin.pas">
+            <Form>FLogin</Form>
+            <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -1317,6 +1310,7 @@
                 <Platform value="Win32">False</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

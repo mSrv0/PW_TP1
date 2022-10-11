@@ -3263,8 +3263,8 @@ object FmPrincipal: TFmPrincipal
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 20
-    Top = 5
+    Left = 52
+    Top = 245
     object LinkFillControlToField1: TLinkFillControlToField
       Category = 'Quick Bindings'
       Control = lvListaStore
