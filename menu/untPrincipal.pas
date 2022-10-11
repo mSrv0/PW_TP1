@@ -170,7 +170,7 @@ end;
 procedure TFmPrincipal.Rectangle4Click(Sender: TObject);
 begin
 
-    MessageDlg('¿Desea salir de la aplicaci?',
+    MessageDlg('¿Desea salir de la aplicación?',
                    System.UITypes.TMsgDlgType.mtConfirmation, FMx.Dialogs.mbYesNo, 0,
                    procedure(const AResult: System.UITypes.TModalResult)
                      begin

@@ -1582,6 +1582,7 @@ object FmPrincipal: TFmPrincipal
     Size.Height = 503.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    Visible = False
     object Image4: TImage
       MultiResBitmap.Height = 128
       MultiResBitmap.Width = 128
