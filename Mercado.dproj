@@ -250,6 +250,7 @@
             <Form>FLogin</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="db\logUnit.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

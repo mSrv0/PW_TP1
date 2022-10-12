@@ -79,14 +79,15 @@ type
       const AItem: TListViewItem);
     procedure Rectangle4Click(Sender: TObject);
     procedure Rectangle3Click(Sender: TObject);
-
-
-  private
+    procedure Label4Click(Sender: TObject);
     procedure OpenMenu(ind: boolean);
     procedure AddClienteLV(id_cliente: integer; nombre, categoria, direccion: string;
       telefono: double);
-    procedure ListarClientes;
+
+  private
     { Private declarations }
+    FUserKey: Integer;
+    FUserDescription: string;
   public
     { Public declarations }
   end;
@@ -95,7 +96,7 @@ var
   FmPrincipal: TFmPrincipal;
 
 implementation
- uses UnitLogin, untClientes, untArticulos;
+ uses UnitLogin, untClientes, untArticulos, logUnit;
 {$R *.fmx}
 
 // Se agregan valores de Lista clientes
@@ -199,23 +200,12 @@ begin
     RecMenu.Visible := false;
 end;
            // Llama al listar los clientes
-procedure TFmPrincipal.ListarClientes;
-begin
-
-end;
-
-
 procedure TFmPrincipal.lvListaStoreItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
     if NOT Assigned(fmClientes) then
       Application.CreateForm(TfmClientes, fmClientes);
 
-end;
-
-procedure TFmPrincipal.FormShow(Sender: TObject);
-begin
-  ListarClientes;
 end;
 
 procedure TFmPrincipal.Image1Click(Sender: TObject);

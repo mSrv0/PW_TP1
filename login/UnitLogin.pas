@@ -57,8 +57,9 @@ type
     procedure bt_LoginClick(Sender: TObject);
     procedure CreaCuentaClick(Sender: TObject);
   private
-  const
     { Private declarations }
+    FUserKey: Integer;
+    FUserDescription: string;
   public
     { Public declarations }
   end;
@@ -70,7 +71,7 @@ implementation
 
 {$R *.fmx}
 {$R *.SmXhdpiPh.fmx ANDROID}
- uses untPrincipal, moduloDatos_u;
+ uses untPrincipal, moduloDatos_u, logUnit;
 
 procedure TFLogin.CreaCuentaClick(Sender: TObject);
 var UnitLogin : TFLogin;
@@ -82,7 +83,6 @@ end;
 procedure TFLogin.bt_LoginClick(Sender: TObject);
  var
 untPrincipal : TFmPrincipal;
-password, passwordSQL : string;
 begin
       if (ed_Usuario.Text = '') then
         begin
@@ -94,24 +94,7 @@ begin
               ShowMessage('Debe contener un password');
               exit
         end;
-
-          QueryL.Close;
-          QueryL.ConnectionName:= DataModule1.nombre_de_la_conexion;
-          QueryL.SQL.Text := 'SELECT * FROM usuarios WHERE usuario=:usuario';
-          QueryL.ParamByName('usuario').AsString := ed_Usuario.Text;
-          QueryL.Open;
-
-      if (QueryL.RecordCount <= 0) then
-        begin
-          ShowMessage('El usuario no esta registrado');
-          exit
-        end;
-
-          passwordSQL := QueryL.FieldByName('password').AsString;
-          password := ed_Password.Text;
-      if (passwordSQL <> password) then
-          ShowMessage('Las contraseñas no coinciden')
-      else
+      if user_validation(FUserKey, FUserDescription, trim(ed_Usuario.Text), trim(ed_Password.Text)) then
         begin
         untPrincipal := TFmPrincipal.Create(Application);
         untPrincipal.Show;

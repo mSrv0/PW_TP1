@@ -1582,7 +1582,6 @@ object FmPrincipal: TFmPrincipal
     Size.Height = 503.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    Visible = False
     object Image4: TImage
       MultiResBitmap.Height = 128
       MultiResBitmap.Width = 128
@@ -1747,8 +1746,8 @@ object FmPrincipal: TFmPrincipal
       TextSettings.Font.StyleExt = {00040000000200000004000000}
       TextSettings.FontColor = xFF545050
       TextSettings.HorzAlign = Center
-      Text = 'Nombre del Usuario'
       TabOrder = 3
+      OnClick = Label4Click
     end
     object Label5: TLabel
       Align = Top
