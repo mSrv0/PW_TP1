@@ -8,6 +8,7 @@ object DataModule1: TDataModule1
       'Database=C:\PuenteWeb\PW_TP1\DataBase-Tienda\e-commerce.db'
       'LockingMode=Normal'
       'DriverID=sQLite')
+    Connected = True
     LoginPrompt = False
     BeforeConnect = ConexionBeforeConnect
     Left = 80

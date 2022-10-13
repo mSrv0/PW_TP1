@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox, cUnit;
 
 type
   TfmClientes = class(TForm)
@@ -33,7 +33,7 @@ type
     procedure FormShow(Sender: TObject);
   private
     procedure ListarClientes;
-    procedure AddCliente(id_cliente: integer; direccion, nombre: string;
+    procedure AddCliente(Cid: integer; direccion, nombre: string;
       telefono: double);
 
     { Private declarations }
@@ -49,7 +49,7 @@ implementation
 {$R *.fmx}
 uses untPrincipal, Frame.ClienteCard;
 
-procedure TfmClientes.AddCliente(id_cliente: integer;
+procedure TfmClientes.AddCliente(Cid: integer;
                                  direccion, nombre: string;
                                  telefono: double);
    var
@@ -60,7 +60,7 @@ begin
    item.Selectable := false;
    item.Text := '';
    item.Height := 200;
-   item.Tag := id_cliente;
+   item.Tag := Cid;
 
 
    // ACA SE MUESTRAN LOS MARCOS/CARDS

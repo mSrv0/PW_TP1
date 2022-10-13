@@ -97,6 +97,7 @@ begin
       if user_validation(FUserKey, FUserDescription, trim(ed_Usuario.Text), trim(ed_Password.Text)) then
         begin
         untPrincipal := TFmPrincipal.Create(Application);
+        untPrincipal.inicializar(FUserKey);
         untPrincipal.Show;
         end;
 

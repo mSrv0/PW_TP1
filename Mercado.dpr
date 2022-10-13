@@ -8,7 +8,8 @@ uses
   Frame.ClienteCard in 'Frames\Frame.ClienteCard.pas' {ClienteCard: TFrame},
   moduloDatos_u in 'dm_manager\moduloDatos_u.pas' {DataModule1: TDataModule},
   UnitLogin in 'login\UnitLogin.pas' {FLogin},
-  logUnit in 'db\logUnit.pas';
+  logUnit in 'db\logUnit.pas',
+  cUnit in 'db\cUnit.pas';
 
 {$R *.res}
 

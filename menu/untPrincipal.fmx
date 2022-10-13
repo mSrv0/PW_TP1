@@ -13,6 +13,7 @@ object FmPrincipal: TFmPrincipal
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   Touch.GestureManager = GestureManager1
   DesignerMasterStyle = 3
   object lyTooBar: TLayout
@@ -1728,7 +1729,7 @@ object FmPrincipal: TFmPrincipal
       Position.Y = 8.000000000000000000
       OnClick = backMenuClick
     end
-    object Label4: TLabel
+    object LBL_Usuario: TLabel
       Align = Top
       AutoSize = True
       AutoTranslate = False
@@ -1746,33 +1747,13 @@ object FmPrincipal: TFmPrincipal
       TextSettings.Font.StyleExt = {00040000000200000004000000}
       TextSettings.FontColor = xFF545050
       TextSettings.HorzAlign = Center
-      TabOrder = 3
-    end
-    object Label5: TLabel
-      Align = Top
-      AutoSize = True
-      AutoTranslate = False
-      StyledSettings = []
-      Margins.Left = 15.000000000000000000
-      Margins.Right = 15.000000000000000000
-      Position.X = 15.000000000000000000
-      Position.Y = 235.000000000000000000
-      Size.Width = 271.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.Family = 'Segoe UI Symbol'
-      TextSettings.Font.Size = 16.000000000000000000
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.FontColor = xFF777373
-      TextSettings.HorzAlign = Center
-      Text = 'email@usuario.com'
       TabOrder = 2
     end
     object Rectangle1: TRectangle
       Align = Top
       Fill.Color = claWhite
       Margins.Top = 15.000000000000000000
-      Position.Y = 272.000000000000000000
+      Position.Y = 250.000000000000000000
       Size.Width = 301.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -1801,7 +1782,7 @@ object FmPrincipal: TFmPrincipal
       Align = Top
       Fill.Color = claWhite
       Margins.Top = 3.000000000000000000
-      Position.Y = 325.000000000000000000
+      Position.Y = 303.000000000000000000
       Sides = [Left, Bottom, Right]
       Size.Width = 301.000000000000000000
       Size.Height = 50.000000000000000000
@@ -1945,9 +1926,9 @@ object FmPrincipal: TFmPrincipal
         end>
       Align = Right
       Position.X = 288.000000000000000000
-      Position.Y = 375.000000000000000000
+      Position.Y = 353.000000000000000000
       Size.Width = 13.000000000000000000
-      Size.Height = 75.000000000000000000
+      Size.Height = 97.000000000000000000
       Size.PlatformDefault = False
       OnClick = Image1Click
     end

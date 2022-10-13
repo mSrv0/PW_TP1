@@ -12,7 +12,8 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider,
   Datasnap.DBClient, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
-  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
+  logUnit;
 
 type
   TFmPrincipal = class(TForm)
@@ -35,8 +36,7 @@ type
     RecMenu: TRectangle;
     Image4: TImage;
     backMenu: TImage;
-    Label4: TLabel;
-    Label5: TLabel;
+    LBL_Usuario: TLabel;
     Rectangle1: TRectangle;
     Label6: TLabel;
     Rectangle3: TRectangle;
@@ -74,27 +74,26 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Rectangle1Click(Sender: TObject);
-    procedure lvListaStoreItemClick(const Sender: TObject;
-      const AItem: TListViewItem);
+    procedure lvListaStoreItemClick(const Sender: TObject; const AItem: TListViewItem);
     procedure Rectangle4Click(Sender: TObject);
     procedure Rectangle3Click(Sender: TObject);
     procedure OpenMenu(ind: boolean);
-    procedure AddClienteLV(id_cliente: integer; nombre, categoria, direccion: string;
-      telefono: double);
+    procedure AddClienteLV(id_cliente: integer; nombre, categoria, direccion: string; telefono: double);
+    procedure FormDestroy(Sender: TObject);
 
   private
     { Private declarations }
-    FUserKey: Integer;
-    FUserDescription: string;
+    FUsuarioLogueado: TUsuario;
   public
     { Public declarations }
+    procedure inicializar(const idUsu: Integer);
   end;
 
 var
   FmPrincipal: TFmPrincipal;
 
 implementation
- uses UnitLogin, untClientes, untArticulos, logUnit;
+ uses UnitLogin, untClientes, untArticulos;
 {$R *.fmx}
 
 // Se agregan valores de Lista clientes
@@ -195,9 +194,18 @@ end;
 
 procedure TFmPrincipal.FormCreate(Sender: TObject);
 begin
+  FUsuarioLogueado:= TUsuario.Create;
     RecMenu.Visible := false;
+
+    // Llama al listar los clientes
 end;
-           // Llama al listar los clientes
+
+procedure TFmPrincipal.FormDestroy(Sender: TObject);
+begin
+  if Assigned(FUsuarioLogueado) then
+    FUsuarioLogueado.Free
+end;
+
 procedure TFmPrincipal.lvListaStoreItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
@@ -223,5 +231,10 @@ begin
      RecMenu.Tag := 1;
 end;
 
+procedure TFmPrincipal.inicializar(const idUsu: Integer);
+begin
+  FUsuarioLogueado.load(idUsu);
+  LBL_Usuario.Text:= FUsuarioLogueado.asString
+end;
 
 end.

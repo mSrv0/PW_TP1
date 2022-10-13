@@ -251,6 +251,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="db\logUnit.pas"/>
+        <DCCReference Include="db\cUnit.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
