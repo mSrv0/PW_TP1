@@ -13,7 +13,6 @@ object FmPrincipal: TFmPrincipal
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  OnShow = FormShow
   Touch.GestureManager = GestureManager1
   DesignerMasterStyle = 3
   object lyTooBar: TLayout
@@ -1582,6 +1581,7 @@ object FmPrincipal: TFmPrincipal
     Size.Height = 503.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    Visible = False
     object Image4: TImage
       MultiResBitmap.Height = 128
       MultiResBitmap.Width = 128
@@ -1747,7 +1747,6 @@ object FmPrincipal: TFmPrincipal
       TextSettings.FontColor = xFF545050
       TextSettings.HorzAlign = Center
       TabOrder = 3
-      OnClick = Label4Click
     end
     object Label5: TLabel
       Align = Top
@@ -3210,11 +3209,10 @@ object FmPrincipal: TFmPrincipal
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = QueryD
-    Left = 272
-    Top = 144
+    Left = 280
+    Top = 392
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'

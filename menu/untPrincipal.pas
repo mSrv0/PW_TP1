@@ -74,12 +74,10 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Rectangle1Click(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure lvListaStoreItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure Rectangle4Click(Sender: TObject);
     procedure Rectangle3Click(Sender: TObject);
-    procedure Label4Click(Sender: TObject);
     procedure OpenMenu(ind: boolean);
     procedure AddClienteLV(id_cliente: integer; nombre, categoria, direccion: string;
       telefono: double);
