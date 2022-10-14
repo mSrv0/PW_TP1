@@ -3151,8 +3151,8 @@ object FmPrincipal: TFmPrincipal
     Connection = DataModule1.Conexion
     SQL.Strings = (
       'select * from clientes')
-    Left = 312
-    Top = 16
+    Left = 128
+    Top = 272
     object QueryDid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -3197,7 +3197,7 @@ object FmPrincipal: TFmPrincipal
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
-    Left = 168
+    Left = 184
     Top = 384
     object ClientDataSet1id: TAutoIncField
       FieldName = 'id'

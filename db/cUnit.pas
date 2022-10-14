@@ -7,36 +7,39 @@ uses System.SysUtils, System.DateUtils, FireDAC.Comp.Client,
      System.IOUtils, FMX.Dialogs, Data.DB, System.Generics.Collections;
 
 type
-  TClientes = class(TObject)
+  TCliente = class(TObject)
   private
-    Cid: Integer;
-    CrazonSocial: String;
-    Cdomicilio: String;
-    Clocalidad: String;
-    Ctelefono: Integer;
-    Cemail: String;
-    CActionsList: TObjectList<TObject>;
+    Fid: Integer;
+    FrazonSocial: String;
+    Fdomicilio: String;
+    Flocalidad: String;
+    Ftelefono: Integer;
+    Femail: String;
+    FActionsList: TObjectList<TObject>;
     function getId: Integer;
     function getRazonSocial: String;
     function getDomicilio: String;
     function getLocalidad: String;
     function getTelefono: Integer;
     function getEmail: String;
+    procedure setRazonSocial(const Value: string);
   protected
     destructor Destroy;
   public
     constructor Create;
-    procedure load(const idArt: integer);
+    procedure load(const idCli: integer);
     function asString: string;
   published
     property Id: integer read getId;
-    property RazonSocial: string read getRazonSocial;
+    property RazonSocial: string read getRazonSocial write setRazonSocial;
     property Domicilio: string read getDomicilio;
     property Localidad: string read getLocalidad;
     property Telefono: integer read getTelefono;
     property Email: string read getEmail;
 end;
 
+
+function listado_clientes: TObjectList<TCliente>;
 
 
 implementation
@@ -45,71 +48,101 @@ uses moduloDatos_u;
 
 
 
-{ TClientes }
+function listado_clientes: TObjectList<TCliente>;
+var cli: TCliente;
+    fdq: TFDQuery;
+begin
+   //creo el listado de clientes
+   Result:= TObjectList<TCliente>.Create;
 
-function TClientes.asString: string;
+   fdq:= DataModule1.inicializarFDQ;
+   fdq.SQL.Add('Select id from clientes');
+   DataModule1.actualizarFDQ(fdq);
+
+   //recorro el fdq y cargo el listado de clientes
+   while not (fdq.Eof) do
+      begin
+      cli:= TCliente.Create;
+      cli.load(fdq.FieldByName('id').AsInteger);
+      Result.Add(cli);
+      fdq.Next
+      end;
+
+   DataModule1.liberarFDQ(fdq)
+end;
+
+{ TCliente }
+
+function TCliente.asString: string;
 begin
 
 end;
 
-constructor TClientes.Create;
+constructor TCliente.Create;
 begin
   inherited;
-  CActionsList:= TObjectList<TObject>.Create
+  FActionsList:= TObjectList<TObject>.Create
 end;
 
-destructor TClientes.Destroy;
+destructor TCliente.Destroy;
 begin
   inherited;
-  CActionsList.Free;
+  FActionsList.Free;
 end;
 
-function TClientes.getDomicilio: String;
+function TCliente.getDomicilio: String;
 begin
-   Result:= Cdomicilio;
+   Result:= Fdomicilio;
 end;
 
-function TClientes.getEmail: String;
+function TCliente.getEmail: String;
 begin
-  Result:= Cemail;
+  Result:= Femail;
 end;
 
-function TClientes.getId: Integer;
+function TCliente.getId: Integer;
 begin
-  Result:= Cid;
+  Result:= Fid;
 end;
 
-function TClientes.getLocalidad: String;
+function TCliente.getLocalidad: String;
 begin
-  Result:= Clocalidad;
+  Result:= Flocalidad;
 end;
 
-function TClientes.getRazonSocial: String;
+function TCliente.getRazonSocial: String;
 begin
-  Result:= CrazonSocial;
+  Result:= FrazonSocial;
 end;
 
-function TClientes.getTelefono: Integer;
+function TCliente.getTelefono: Integer;
 begin
-  Result:= Ctelefono;
+  Result:= Ftelefono;
 end;
 
-procedure TClientes.load(const idArt: integer);
+procedure TCliente.load(const idcli: integer);
 var fdqC: TFDQuery;
 begin
   fdqC:= DataModule1.inicializarFDQ;
-  fdqC.SQL.Add('Select * from clientes where (id:= idC)');
-  fdqC.ParamByName('idC').AsInteger:= Cid;
+  fdqC.SQL.Add('Select * from clientes where (id = :idC)');
+  fdqC.ParamByName('idC').AsInteger:= idCli;
   DataModule1.actualizarFDQ(fdqC);
 
   // Inicia carga de los datos de clientes
 
-  Cid:= fdqC.FieldByName('id').AsInteger;
-  CrazonSocial:= fdqC.FieldByName('RazonSocial').AsString;
-  Cdomicilio:= fdqC.FieldByName('domicilio').AsString;
-  Clocalidad:= fdqC.FieldByName('localidad').AsString;
-  Ctelefono:= fdqC.FieldByName('telefono').AsInteger;
-  Cemail:= fdqC.FieldByName('email').AsString;
+  Fid:= fdqC.FieldByName('id').AsInteger;
+  FrazonSocial:= fdqC.FieldByName('Razon_Social').AsString;
+  Fdomicilio:= fdqC.FieldByName('domicilio').AsString;
+  Flocalidad:= fdqC.FieldByName('localidad').AsString;
+  Ftelefono:= fdqC.FieldByName('telefono').AsInteger;
+  Femail:= fdqC.FieldByName('email').AsString;
+
+  DataModule1.liberarFDQ(fdqC)
 end;
+
+procedure TCliente.setRazonSocial(const Value: string);
+begin
+RazonSocial:=Value;
+end; //Metodo para edicion
 
 end.

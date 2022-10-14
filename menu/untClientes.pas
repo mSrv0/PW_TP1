@@ -5,7 +5,13 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox, cUnit;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox,
+  cUnit, System.Generics.Collections, FMX.ListView.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
+  FMX.TabControl, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TfmClientes = class(TForm)
@@ -30,11 +36,15 @@ type
     Label5: TLabel;
     lbClientes: TListBox;
     StyleBook1: TStyleBook;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    lvClientes: TListView;
+    FDQuery1: TFDQuery;
     procedure FormShow(Sender: TObject);
   private
     procedure ListarClientes;
-    procedure AddCliente(Cid: integer; direccion, nombre: string;
-      telefono: double);
+    procedure AddCliente(Cid: integer; direccion, nombre: string; telefono: double);
 
     { Private declarations }
   public
@@ -76,17 +86,30 @@ begin
 end;
 
 procedure TfmClientes.ListarClientes;
-
+var cli: TCliente;
+    list: TObjectList<TCliente>;
+    k: Integer;
 begin
             // Acceder a datos de card clientes
 
+{    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
     AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
     AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
     AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
     AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
     AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
+}
 
+   list:= listado_clientes;
+   for k:= 0 to list.Count - 1 do
+      begin
+      cli:= list[k];
+      //pinto el cliente
+      AddCliente(cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono);
+      end;
+
+   //libero el listado
+   list.Free
 end;
 
 procedure TfmClientes.FormShow(Sender: TObject);

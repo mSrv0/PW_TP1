@@ -155,12 +155,14 @@ begin
     untClientes.Show;
 end;
 
+         //FUNCION ONCLICK AL APARTADO ARTICULOS
 
 procedure TFmPrincipal.Rectangle3Click(Sender: TObject);
 var untArticulos :  TFrArticulos;
 begin
    untArticulos := TFrArticulos.Create(Application);
    untArticulos.Show;
+
 end;
 
 // En el menu desplegable se ejecuta el boton "CERRAR SESION

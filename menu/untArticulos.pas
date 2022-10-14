@@ -10,7 +10,10 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Data.Bind.Components, Data.Bind.DBScope,
+  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Datasnap.DBClient, Datasnap.Provider,
+  System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Grid,
+  Data.Bind.DBLinks, Fmx.Bind.DBLinks;
 
 type
   TFrArticulos = class(TForm)
@@ -18,6 +21,14 @@ type
     Image1: TImage;
     lvArticulos: TListView;
     QueryArt: TFDQuery;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    ClientDataSet1: TClientDataSet;
+    DataSetProvider1: TDataSetProvider;
+    LinkFillControlToField1: TLinkFillControlToField;
+    BindList1: TBindList;
+    BindDBImageLink1: TBindDBImageLink;
+    BindSourceDB2: TBindSourceDB;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }

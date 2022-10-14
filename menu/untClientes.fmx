@@ -1,6 +1,7 @@
 object fmClientes: TfmClientes
   Left = 0
   Top = 0
+  ActiveControl = TabItem2
   Caption = 'Clientes'
   ClientHeight = 460
   ClientWidth = 319
@@ -271,180 +272,6 @@ object fmClientes: TfmClientes
       TabOrder = 1
       Text = 'Buscar'
     end
-  end
-  object lbClientBar: TListBox
-    Align = Top
-    Margins.Top = 15.000000000000000000
-    Position.Y = 140.000000000000000000
-    Size.Width = 319.000000000000000000
-    Size.Height = 52.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 2
-    ShowScrollBars = False
-    DisableFocusEffect = True
-    DefaultItemStyles.ItemStyle = ''
-    DefaultItemStyles.GroupHeaderStyle = ''
-    DefaultItemStyles.GroupFooterStyle = ''
-    ListStyle = Horizontal
-    Viewport.Width = 319.000000000000000000
-    Viewport.Height = 52.000000000000000000
-    object ListBoxItem1: TListBoxItem
-      StyledSettings = [Family, Size, Style, Other]
-      Size.Width = 121.000000000000000000
-      Size.Height = 52.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 2
-      object Rectangle1: TRectangle
-        Align = Client
-        Fill.Color = xFF17AD1C
-        Margins.Left = 8.000000000000000000
-        Margins.Top = 8.000000000000000000
-        Margins.Right = 8.000000000000000000
-        Margins.Bottom = 8.000000000000000000
-        Size.Width = 105.000000000000000000
-        Size.Height = 36.000000000000000000
-        Size.PlatformDefault = False
-        Stroke.Kind = None
-        Stroke.Dash = Dash
-        XRadius = 6.000000000000000000
-        YRadius = 6.000000000000000000
-        object Label2: TLabel
-          Align = Client
-          StyledSettings = [Family]
-          Size.Width = 105.000000000000000000
-          Size.Height = 36.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 16.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claWhite
-          TextSettings.HorzAlign = Center
-          Text = 'Mayorista'
-          TabOrder = 0
-        end
-      end
-    end
-    object ListBoxItem2: TListBoxItem
-      StyledSettings = [Family, Size, Style, Other]
-      Position.X = 121.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 52.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 1
-      object Rectangle2: TRectangle
-        Align = Client
-        Fill.Color = xFF96A196
-        Margins.Left = 8.000000000000000000
-        Margins.Top = 8.000000000000000000
-        Margins.Right = 8.000000000000000000
-        Margins.Bottom = 8.000000000000000000
-        Size.Width = 104.000000000000000000
-        Size.Height = 36.000000000000000000
-        Size.PlatformDefault = False
-        Stroke.Kind = None
-        Stroke.Dash = Dash
-        XRadius = 6.000000000000000000
-        YRadius = 6.000000000000000000
-        object Label3: TLabel
-          Align = Client
-          StyledSettings = [Family]
-          Size.Width = 104.000000000000000000
-          Size.Height = 36.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 16.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claWhite
-          TextSettings.HorzAlign = Center
-          Text = 'Minorista'
-          TabOrder = 0
-        end
-      end
-      object ListBoxItem3: TListBoxItem
-        StyledSettings = [Family, Size, Style, Other]
-        Position.X = 241.000000000000000000
-        Size.Width = 168.000000000000000000
-        Size.Height = 52.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        object Rectangle3: TRectangle
-          Align = Client
-          Fill.Color = xFF96A196
-          Margins.Left = 8.000000000000000000
-          Margins.Top = 8.000000000000000000
-          Margins.Right = 8.000000000000000000
-          Margins.Bottom = 8.000000000000000000
-          Size.Width = 152.000000000000000000
-          Size.Height = 36.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          Stroke.Dash = Dash
-          XRadius = 6.000000000000000000
-          YRadius = 6.000000000000000000
-          object Label4: TLabel
-            Align = Client
-            StyledSettings = [Family]
-            Size.Width = 152.000000000000000000
-            Size.Height = 36.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 16.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            TextSettings.FontColor = claWhite
-            TextSettings.HorzAlign = Center
-            Text = 'Bebidas c/ Alcohol'
-            TabOrder = 0
-          end
-        end
-      end
-    end
-    object ListBoxItem4: TListBoxItem
-      StyledSettings = [Family, Size, Style, Other]
-      Position.X = 241.000000000000000000
-      Size.Width = 124.000000000000000000
-      Size.Height = 52.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-      object Rectangle4: TRectangle
-        Align = Client
-        Fill.Color = xFF96A196
-        Margins.Left = 8.000000000000000000
-        Margins.Top = 8.000000000000000000
-        Margins.Right = 8.000000000000000000
-        Margins.Bottom = 8.000000000000000000
-        Size.Width = 108.000000000000000000
-        Size.Height = 36.000000000000000000
-        Size.PlatformDefault = False
-        Stroke.Kind = None
-        Stroke.Dash = Dash
-        XRadius = 6.000000000000000000
-        YRadius = 6.000000000000000000
-        object Label5: TLabel
-          Align = Client
-          StyledSettings = [Family]
-          Size.Width = 108.000000000000000000
-          Size.Height = 36.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 16.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claWhite
-          TextSettings.HorzAlign = Center
-          Text = 'Bebidas'
-          TabOrder = 0
-        end
-      end
-    end
-  end
-  object lbClientes: TListBox
-    Align = Client
-    Size.Width = 319.000000000000000000
-    Size.Height = 268.000000000000000000
-    Size.PlatformDefault = False
-    StyleLookup = 'transparentlistboxstyle'
-    TabOrder = 3
-    DisableFocusEffect = True
-    DefaultItemStyles.ItemStyle = ''
-    DefaultItemStyles.GroupHeaderStyle = ''
-    DefaultItemStyles.GroupFooterStyle = ''
-    Viewport.Width = 319.000000000000000000
-    Viewport.Height = 268.000000000000000000
   end
   object StyleBook1: TStyleBook
     Styles = <
@@ -868,5 +695,285 @@ object fmClientes: TfmClientes
       end>
     Left = 264
     Top = 16
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 319.000000000000000000
+    Size.Height = 335.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 1
+    TabOrder = 3
+    TabPosition = PlatformDefault
+    Sizes = (
+      319s
+      286s
+      319s
+      286s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 159.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 159.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object lbClientBar: TListBox
+        Align = Top
+        Margins.Top = 15.000000000000000000
+        Position.Y = 15.000000000000000000
+        Size.Width = 319.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        ShowScrollBars = False
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        ListStyle = Horizontal
+        Viewport.Width = 319.000000000000000000
+        Viewport.Height = 52.000000000000000000
+        object ListBoxItem1: TListBoxItem
+          StyledSettings = [Family, Size, Style, Other]
+          Size.Width = 121.000000000000000000
+          Size.Height = 52.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object Rectangle1: TRectangle
+            Align = Client
+            Fill.Color = xFF17AD1C
+            Margins.Left = 8.000000000000000000
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 8.000000000000000000
+            Size.Width = 105.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            Stroke.Dash = Dash
+            XRadius = 6.000000000000000000
+            YRadius = 6.000000000000000000
+            object Label2: TLabel
+              Align = Client
+              StyledSettings = [Family]
+              Size.Width = 105.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Center
+              Text = 'Mayorista'
+              TabOrder = 0
+            end
+          end
+        end
+        object ListBoxItem2: TListBoxItem
+          StyledSettings = [Family, Size, Style, Other]
+          Position.X = 121.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 52.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Rectangle2: TRectangle
+            Align = Client
+            Fill.Color = xFF96A196
+            Margins.Left = 8.000000000000000000
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 8.000000000000000000
+            Size.Width = 104.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            Stroke.Dash = Dash
+            XRadius = 6.000000000000000000
+            YRadius = 6.000000000000000000
+            object Label3: TLabel
+              Align = Client
+              StyledSettings = [Family]
+              Size.Width = 104.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Center
+              Text = 'Minorista'
+              TabOrder = 0
+            end
+          end
+          object ListBoxItem3: TListBoxItem
+            StyledSettings = [Family, Size, Style, Other]
+            Position.X = 241.000000000000000000
+            Size.Width = 168.000000000000000000
+            Size.Height = 52.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Rectangle3: TRectangle
+              Align = Client
+              Fill.Color = xFF96A196
+              Margins.Left = 8.000000000000000000
+              Margins.Top = 8.000000000000000000
+              Margins.Right = 8.000000000000000000
+              Margins.Bottom = 8.000000000000000000
+              Size.Width = 152.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+              Stroke.Dash = Dash
+              XRadius = 6.000000000000000000
+              YRadius = 6.000000000000000000
+              object Label4: TLabel
+                Align = Client
+                StyledSettings = [Family]
+                Size.Width = 152.000000000000000000
+                Size.Height = 36.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = claWhite
+                TextSettings.HorzAlign = Center
+                Text = 'Bebidas c/ Alcohol'
+                TabOrder = 0
+              end
+            end
+          end
+        end
+        object ListBoxItem4: TListBoxItem
+          StyledSettings = [Family, Size, Style, Other]
+          Position.X = 241.000000000000000000
+          Size.Width = 124.000000000000000000
+          Size.Height = 52.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Rectangle4: TRectangle
+            Align = Client
+            Fill.Color = xFF96A196
+            Margins.Left = 8.000000000000000000
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 8.000000000000000000
+            Size.Width = 108.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            Stroke.Dash = Dash
+            XRadius = 6.000000000000000000
+            YRadius = 6.000000000000000000
+            object Label5: TLabel
+              Align = Client
+              StyledSettings = [Family]
+              Size.Width = 108.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Center
+              Text = 'Bebidas'
+              TabOrder = 0
+            end
+          end
+        end
+      end
+      object lbClientes: TListBox
+        Align = Client
+        Size.Width = 319.000000000000000000
+        Size.Height = 219.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 3
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Sorted = True
+        Viewport.Width = 319.000000000000000000
+        Viewport.Height = 219.000000000000000000
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 160.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 160.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object lvClientes: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 319.000000000000000000
+        Size.Height = 286.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearance.ItemHeight = 100
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'txtRazon_Social'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.Size = 22.000000000000000000
+            Appearance.Font.StyleExt = {00070000000000000004000000}
+            Appearance.Width = 210.000000000000000000
+            Appearance.Height = 29.000000000000000000
+            Appearance.PlaceOffset.X = 86.000000000000000000
+            Appearance.PlaceOffset.Y = 8.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtDomicilio'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 212.000000000000000000
+            Appearance.Height = 23.000000000000000000
+            Appearance.PlaceOffset.X = 86.000000000000000000
+            Appearance.PlaceOffset.Y = 53.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtTelefono'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 212.000000000000000000
+            Appearance.Height = 21.000000000000000000
+            Appearance.PlaceOffset.X = 86.000000000000000000
+            Appearance.PlaceOffset.Y = 78.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'Image4'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 73.000000000000000000
+            Appearance.Height = 89.000000000000000000
+            Appearance.PlaceOffset.X = 6.000000000000000000
+            Appearance.PlaceOffset.Y = 8.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.FooterObjects.Text.Width = 282.000000000000000000
+        ItemAppearanceObjects.FooterObjects.Text.Height = 28.000000000000000000
+        ItemAppearanceObjects.FooterObjects.Text.PlaceOffset.Y = 4.000000000000000000
+      end
+    end
+  end
+  object FDQuery1: TFDQuery
+    Connection = DataModule1.Conexion
+    SQL.Strings = (
+      'SELECT razon_social, domiciolio, localidad FROM clientes')
+    Left = 208
+    Top = 382
   end
 end
