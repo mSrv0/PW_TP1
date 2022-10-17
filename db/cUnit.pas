@@ -75,7 +75,7 @@ end;
 
 function TCliente.asString: string;
 begin
-
+   Result:= RazonSocial
 end;
 
 constructor TCliente.Create;
@@ -119,6 +119,8 @@ function TCliente.getTelefono: Integer;
 begin
   Result:= Ftelefono;
 end;
+
+
 
 procedure TCliente.load(const idcli: integer);
 var fdqC: TFDQuery;
