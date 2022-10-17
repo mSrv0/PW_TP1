@@ -50,8 +50,6 @@ type
     Rectangle1: TRectangle;
     Rectangle2: TRectangle;
     ed_Password: TEdit;
-    DataSource1: TDataSource;
-    QueryL: TFDQuery;
     procedure SQLQuery1ParseInsertSql(var FieldNames: TStrings; SQL: string;
       var BindAllFields: Boolean; var TableName: string);
     procedure bt_LoginClick(Sender: TObject);
