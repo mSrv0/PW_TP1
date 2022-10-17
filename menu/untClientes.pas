@@ -11,16 +11,12 @@ uses
   FMX.TabControl, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Frame.ClienteCard;
 
 type
   TfmClientes = class(TForm)
     Label1: TLabel;
     Image1: TImage;
-    rectBusqueda: TRectangle;
-    Edit1: TEdit;
-    Image3: TImage;
-    Buscar: TButton;
     lbClientBar: TListBox;
     ListBoxItem1: TListBoxItem;
     Rectangle1: TRectangle;
@@ -42,13 +38,19 @@ type
     lvClientes: TListView;
     FDQuery1: TFDQuery;
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure lvClientesItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
   private
+    list: TObjectList<TCliente>;
     procedure ListarClientes;
-    procedure AddCliente(Cid: integer; direccion, nombre: string; telefono: double);
+    procedure AddClientelb(Cid: integer; direccion, nombre: string; telefono: double);
+    procedure AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
 
     { Private declarations }
   public
     { Public declarations }
+    FFrame: TClienteCard;
   end;
 
 var
@@ -57,14 +59,12 @@ var
 implementation
 
 {$R *.fmx}
-uses untPrincipal, Frame.ClienteCard;
+uses untPrincipal;
 
-procedure TfmClientes.AddCliente(Cid: integer;
-                                 direccion, nombre: string;
-                                 telefono: double);
-   var
-      item: TListBoxItem;
-      frame: TClienteCard;
+procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string; telefono: double);
+var
+   item: TListBoxItem;
+   frame: TClienteCard;
 begin
    item:= TListBoxItem.Create(lbClientes);
    item.Selectable := false;
@@ -85,9 +85,33 @@ begin
    lbClientes.AddObject(item);
 end;
 
+
+       //Agrega listado de clientes a listview
+procedure TfmClientes.AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
+
+   function par(n: integer): boolean;
+   begin
+      Result:= ((n mod 2) = 0)
+   end;
+
+var
+   item: TListViewItem;
+begin
+   item:= lvClientes.Items.AddItem(indice);
+   item.Data['txtRazon_Social']:= nombre;
+   item.Data['txtDomicilio']:= direccion;
+   item.Data['txtTelefono']:= telefono;
+   if (par(indice)) then
+      item.Data['imgLocal']:= fframe.ImgLocal.Bitmap
+   else
+      item.Data['imgLocal']:= fframe.imgTienda.Bitmap;
+   item.Tag := Cid;
+end;
+
+
+      //INICIA RECORRIDO Y CARGA DE CLIENTES A LISTBOX
 procedure TfmClientes.ListarClientes;
 var cli: TCliente;
-    list: TObjectList<TCliente>;
     k: Integer;
 begin
             // Acceder a datos de card clientes
@@ -100,21 +124,37 @@ begin
     AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
 }
 
-   list:= listado_clientes;
+
    for k:= 0 to list.Count - 1 do
       begin
       cli:= list[k];
       //pinto el cliente
-      AddCliente(cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono);
+      AddClientelb(cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono);
+      AddClientelv(cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono, k);
       end;
 
    //libero el listado
-   list.Free
+   //list.Free
+end;
+
+procedure TfmClientes.lvClientesItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
+var cli: TCliente;
+begin
+   cli:= list[itemindex];
+   ShowMessage('Soy el Cliente: '+ sLineBreak + cli.asString);
+end;
+
+procedure TfmClientes.FormCreate(Sender: TObject);
+begin
+   list:= listado_clientes;
+   FFrame:= TClienteCard.Create(nil);
 end;
 
 procedure TfmClientes.FormShow(Sender: TObject);
 begin
    ListarClientes;
 end;
-
+       // (cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono)
 end.
