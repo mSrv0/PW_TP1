@@ -21,18 +21,7 @@ type
     ImgMenu: TImage;
     Image2: TImage;
     Label1: TLabel;
-    lyBusqueda: TLayout;
     StyleBook1: TStyleBook;
-    rectBusqueda: TRectangle;
-    Edit1: TEdit;
-    Image3: TImage;
-    Buscar: TButton;
-    lySwitch: TLayout;
-    rectSwitch: TRectangle;
-    Rectangle2: TRectangle;
-    Label2: TLabel;
-    Label3: TLabel;
-    lvListaStore: TListView;
     RecMenu: TRectangle;
     Image4: TImage;
     backMenu: TImage;
@@ -51,18 +40,19 @@ type
     imgLocal: TImage;
     imgUbic: TImage;
     imgTel: TImage;
+    ac_CerrarSesion: TAction;
     procedure ImgMenuClick(Sender: TObject);
     procedure backMenuClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Rectangle1Click(Sender: TObject);
     procedure lvListaStoreItemClick(const Sender: TObject; const AItem: TListViewItem);
-    procedure Rectangle4Click(Sender: TObject);
     procedure Rectangle3Click(Sender: TObject);
     procedure OpenMenu(ind: boolean);
-    procedure AddClienteLV(id_cliente: integer; nombre, categoria, direccion: string; telefono: double);
     procedure FormDestroy(Sender: TObject);
-
+    procedure ac_CerrarSesionExecute(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     FUsuarioLogueado: TUsuario;
@@ -78,49 +68,24 @@ implementation
  uses UnitLogin, untClientes, untArticulos;
 {$R *.fmx}
 
-// Se agregan valores de Lista clientes
-procedure TFmPrincipal.AddClienteLV(id_cliente: integer;
-                                    nombre, categoria, direccion: string;
-                                    telefono: double);
 
-     //Camptura la imagen que tiene la vista
-     //COMIENZA
-var
-   img: TListItemImage;
-   txt: TListItemText;
-
+//En el menu desplegable se ejecuta el boton "CERRAR SESION"
+procedure TFmPrincipal.ac_CerrarSesionExecute(Sender: TObject);
 begin
-   with lvListaStore.Items.Add do
-   begin
-      height := 120;
-      Tag := id_cliente;
-
-      // Devuelve y captura los item IMG
-
-      img := TListItemImage(Objects.FindDrawable('imgLocal'));
-      img.Bitmap := imgLocal.Bitmap;
-
-      img := TListItemImage(Objects.FindDrawable('imgTel'));
-      img.Bitmap := imgTel.Bitmap;
-
-      img := TListItemImage(Objects.FindDrawable('imgUbic'));
-      img.Bitmap := imgUbic.Bitmap;
-
-      //Devuelve y captura las caracteristicas de cada item IMG
-
-      txt := TListItemText(Objects.FindDrawable('txtNombre'));
-      txt.Text :=  nombre;
-
-      txt := TListItemText(Objects.FindDrawable('txtCategoria'));
-      txt.Text :=  categoria;
-
-      txt := TListItemText(Objects.FindDrawable('txtTelefono'));
-      txt.Text :=  '111-222-333';
-
-      txt := TListItemText(Objects.FindDrawable('txtUbicacion'));
-      txt.Text :=  direccion;
-   end;
+   MessageDlg('¿Desea salir de la aplicación?',
+                   System.UITypes.TMsgDlgType.mtConfirmation, FMx.Dialogs.mbYesNo, 0,
+                   procedure(const AResult: System.UITypes.TModalResult)
+                     begin
+                     case AResult of
+                     mrYES:   Close;
+                     mrNo:    Exit;
+                     else     Exit;
+                     end;
+                 end);
 end;
+
+
+
 
  // TERMINA
 
@@ -147,23 +112,8 @@ begin
 
 end;
 
-          //En el menu desplegable se ejecuta el boton "CERRAR SESION
 
-procedure TFmPrincipal.Rectangle4Click(Sender: TObject);
-begin
 
-    MessageDlg('¿Desea salir de la aplicación?',
-                   System.UITypes.TMsgDlgType.mtConfirmation, FMx.Dialogs.mbYesNo, 0,
-                   procedure(const AResult: System.UITypes.TModalResult)
-                     begin
-                     case AResult of
-                     mrYES:   Close;
-                     mrNo:    Exit;
-                     else     Exit;
-                     end;
-                 end);
-
-end;
 
 // Funcion de icono flecha backMenu
 procedure TFmPrincipal.backMenuClick(Sender: TObject);
@@ -188,6 +138,14 @@ procedure TFmPrincipal.FormDestroy(Sender: TObject);
 begin
   if Assigned(FUsuarioLogueado) then
     FUsuarioLogueado.Free
+end;
+
+     //CONSULTA Y CONTROL DEL BOTON NATIVO DE ANDROID BACK
+procedure TFmPrincipal.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+   ac_CerrarSesionExecute(nil);
+   Key:= 0;
 end;
 
 procedure TFmPrincipal.lvListaStoreItemClick(const Sender: TObject;
