@@ -510,7 +510,7 @@ object fmClientes: TfmClientes
     Size.Height = 403.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 3
     TabPosition = PlatformDefault
     Sizes = (
@@ -522,7 +522,7 @@ object fmClientes: TfmClientes
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 159.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -698,6 +698,7 @@ object fmClientes: TfmClientes
         Size.PlatformDefault = False
         StyleLookup = 'transparentlistboxstyle'
         TabOrder = 3
+        OnClick = lbClientesClick
         DisableFocusEffect = True
         DefaultItemStyles.ItemStyle = ''
         DefaultItemStyles.GroupHeaderStyle = ''
@@ -711,7 +712,7 @@ object fmClientes: TfmClientes
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 160.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False

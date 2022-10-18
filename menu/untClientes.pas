@@ -41,10 +41,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure lvClientesItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
+    procedure lbClientesClick(Sender: TObject);
   private
     list: TObjectList<TCliente>;
     procedure ListarClientes;
-    procedure AddClientelb(Cid: integer; direccion, nombre: string; telefono: double);
+    procedure AddClientelb(Cid: integer; direccion, nombre: string; telefono: integer);
     procedure AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
 
     { Private declarations }
@@ -59,9 +60,9 @@ var
 implementation
 
 {$R *.fmx}
-uses untPrincipal;
+uses untPrincipal, untEditClientes;
 
-procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string; telefono: double);
+procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string;telefono: integer);
 var
    item: TListBoxItem;
    frame: TClienteCard;
@@ -78,7 +79,7 @@ begin
     //frame.imgTienda;
     frame.lbNombre.Text := nombre;
     frame.lbUbi.Text := direccion;
-    frame.lbTel.Text := '111-222-333';
+    frame.lbTel.Text := telefono.ToString;
 
     item.AddObject(frame);
 
@@ -102,7 +103,7 @@ begin
    item.Data['txtDomicilio']:= direccion;
    item.Data['txtTelefono']:= telefono;
    if (par(indice)) then
-      item.Data['imgLocal']:= fframe.ImgLocal.Bitmap
+      item.Data['imgLocal']:= fframe.imgTienda.Bitmap
    else
       item.Data['imgLocal']:= fframe.imgTienda.Bitmap;
    item.Tag := Cid;
@@ -156,5 +157,11 @@ procedure TfmClientes.FormShow(Sender: TObject);
 begin
    ListarClientes;
 end;
-       // (cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono)
+procedure TfmClientes.lbClientesClick(Sender: TObject);
+var untEditClientes: TfmEditClientes;
+begin
+  untEditClientes := TfmEditClientes.Create(Application);
+  untEditClientes.Show;
+end;
+// (cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono)
 end.

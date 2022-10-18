@@ -63,7 +63,7 @@ end;
 
 function TUsuario.asString: string;
 begin
-  Result:= FApellido + ', '+ FNombre
+  Result:= UpperCase(FApellido) + ', '+ UpperCase(FNombre)
 end;
 
 constructor TUsuario.Create;

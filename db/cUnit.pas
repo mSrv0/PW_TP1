@@ -23,19 +23,24 @@ type
     function getTelefono: Integer;
     function getEmail: String;
     procedure setRazonSocial(const Value: string);
+    procedure setDomicilio(const Value: string);
+    procedure setLocalidad(const Value: string);
+    procedure setTelefono(const Value: Integer);
+    procedure setEmail(const Value: string);
   protected
     destructor Destroy;
   public
     constructor Create;
     procedure load(const idCli: integer);
+    procedure loadC(const idcliC: integer);
     function asString: string;
   published
     property Id: integer read getId;
     property RazonSocial: string read getRazonSocial write setRazonSocial;
-    property Domicilio: string read getDomicilio;
-    property Localidad: string read getLocalidad;
-    property Telefono: integer read getTelefono;
-    property Email: string read getEmail;
+    property Domicilio: string read getDomicilio write setDomicilio;
+    property Localidad: string read getLocalidad write setLocalidad;
+    property Telefono: integer read getTelefono write setTelefono;
+    property Email: string read getEmail write setEmail;
 end;
 
 
@@ -120,8 +125,6 @@ begin
   Result:= Ftelefono;
 end;
 
-
-
 procedure TCliente.load(const idcli: integer);
 var fdqC: TFDQuery;
 begin
@@ -142,9 +145,38 @@ begin
   DataModule1.liberarFDQ(fdqC)
 end;
 
+procedure TCliente.loadC(const idcliC: integer);
+var fdq: TFDQuery;
+begin
+fdq:=DataModule1.inicializarFDQ;
+fdq.SQL.Add('Update clientes SET domicilio:=domicilio, localidad:=localidad, telefono:=telefono, email:=email WHERE (id =: idL)');
+fdq.ParamByName('idL').AsInteger:=idcliC;
+DataModule1.actualizarFDQ(fdq);
+end;
+
+procedure TCliente.setDomicilio(const Value: string);
+begin
+Domicilio:=Value;
+end;
+
+procedure TCliente.setEmail(const Value: string);
+begin
+Email:=Value;
+end;
+
+procedure TCliente.setLocalidad(const Value: string);
+begin
+Localidad:=Value;
+end;
+
 procedure TCliente.setRazonSocial(const Value: string);
 begin
 RazonSocial:=Value;
-end; //Metodo para edicion
+end; procedure TCliente.setTelefono(const Value: Integer);
+begin
+Telefono:=Value;
+end;
+
+//Metodo para edicion
 
 end.

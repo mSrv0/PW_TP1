@@ -97,8 +97,8 @@ begin
         untPrincipal := TFmPrincipal.Create(Application);
         untPrincipal.inicializar(FUserKey);
         untPrincipal.Show;
+        ShowMessage('Bienvenido/a ' + FUserDescription);
         end;
-
 end;
 
 procedure TFLogin.SQLQuery1ParseInsertSql(var FieldNames: TStrings; SQL: string;

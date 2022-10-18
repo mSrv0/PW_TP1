@@ -51,24 +51,6 @@ type
     imgLocal: TImage;
     imgUbic: TImage;
     imgTel: TImage;
-    QueryD: TFDQuery;
-    DataSetProvider1: TDataSetProvider;
-    ClientDataSet1: TClientDataSet;
-    QueryDid: TFDAutoIncField;
-    QueryDrazon_social: TStringField;
-    QueryDdomicilio: TStringField;
-    QueryDlocalidad: TStringField;
-    QueryDtelefono: TIntegerField;
-    QueryDemail: TStringField;
-    ClientDataSet1id: TAutoIncField;
-    ClientDataSet1razon_social: TStringField;
-    ClientDataSet1domicilio: TStringField;
-    ClientDataSet1localidad: TStringField;
-    ClientDataSet1telefono: TIntegerField;
-    ClientDataSet1email: TStringField;
-    BindSourceDB1: TBindSourceDB;
-    BindingsList1: TBindingsList;
-    LinkFillControlToField1: TLinkFillControlToField;
     procedure ImgMenuClick(Sender: TObject);
     procedure backMenuClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -165,7 +147,7 @@ begin
 
 end;
 
-// En el menu desplegable se ejecuta el boton "CERRAR SESION
+          //En el menu desplegable se ejecuta el boton "CERRAR SESION
 
 procedure TFmPrincipal.Rectangle4Click(Sender: TObject);
 begin
@@ -236,7 +218,7 @@ end;
 procedure TFmPrincipal.inicializar(const idUsu: Integer);
 begin
   FUsuarioLogueado.load(idUsu);
-  LBL_Usuario.Text:= FUsuarioLogueado.asString
+  LBL_Usuario.Text:= ('Bienvenido/a ' + FUsuarioLogueado.asString)
 end;
 
 end.
