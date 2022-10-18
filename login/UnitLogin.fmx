@@ -84,7 +84,7 @@ object FLogin: TFLogin
           object ed_Usuario: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Top
-            StyleLookup = 'EditTransparente'
+            StyleLookup = 'editstyle'
             TabOrder = 2
             TextSettings.Font.Size = 16.000000000000000000
             Position.X = 5.000000000000000000
