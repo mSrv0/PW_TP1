@@ -149,7 +149,7 @@ procedure TCliente.loadC(const idcliC: integer);
 var fdq: TFDQuery;
 begin
 fdq:=DataModule1.inicializarFDQ;
-fdq.SQL.Add('Update clientes SET domicilio:=domicilio, localidad:=localidad, telefono:=telefono, email:=email WHERE (id =: idL)');
+fdq.SQL.Add('UPDATE clientes SET domicilio:=domicilio, localidad:=localidad, telefono:=telefono, email:=email WHERE (id =: idL)');
 fdq.ParamByName('idL').AsInteger:=idcliC;
 DataModule1.actualizarFDQ(fdq);
 end;

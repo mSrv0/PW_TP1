@@ -3,9 +3,67 @@ object fmEditClientes: TfmEditClientes
   Top = 0
   Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 640
+  ClientWidth = 320
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 3
+  object btn_Editar: TButton
+    Align = Bottom
+    Position.Y = 436.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Editar'
+  end
+  object Label1: TLabel
+    Align = Top
+    Size.Width = 320.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Label1'
+    TabOrder = 1
+    object img_BackCli: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Left
+      Size.Width = 65.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object Rectangle1: TRectangle
+    Align = Top
+    Margins.Top = 15.000000000000000000
+    Position.Y = 133.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 52.000000000000000000
+    Size.PlatformDefault = False
+    object Label2: TLabel
+      Text = 'Localidad'
+      TabOrder = 0
+    end
+    object ed_localidad: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Bottom
+      TabOrder = 1
+      Position.Y = 20.000000000000000000
+      Size.Width = 320.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object lb_RazonSocial: TLabel
+    Align = Top
+    Margins.Top = 5.000000000000000000
+    Position.Y = 70.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+  end
 end
