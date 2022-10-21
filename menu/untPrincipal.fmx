@@ -1390,7 +1390,7 @@ object FmPrincipal: TFmPrincipal
       TextSettings.Font.StyleExt = {00040000000200000004000000}
       TextSettings.FontColor = xFF545050
       TextSettings.HorzAlign = Center
-      TabOrder = 2
+      TabOrder = 1
     end
     object Rectangle1: TRectangle
       Align = Top
