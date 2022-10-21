@@ -27,6 +27,10 @@ type
     btn_Aceptar: TButton;
     Rectangle2: TRectangle;
     btn_Cancelar: TButton;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
   private
     { Private declarations }
   public
