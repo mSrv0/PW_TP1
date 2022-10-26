@@ -76,6 +76,7 @@ object FrArticulos: TFrArticulos
       Size.Width = 57.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image1Click
     end
   end
   object lvArticulos: TListView
@@ -83,7 +84,6 @@ object FrArticulos: TFrArticulos
     ItemEditAppearanceClassName = 'TDynamicAppearance'
     HeaderAppearanceClassName = 'TListHeaderObjects'
     FooterAppearanceClassName = 'TListHeaderObjects'
-    ScrollViewPos = 525.000000000000000000
     Align = Client
     Size.Width = 316.000000000000000000
     Size.Height = 423.000000000000000000
@@ -125,23 +125,23 @@ object FrArticulos: TFrArticulos
     SearchVisible = True
   end
   object QueryArt: TFDQuery
-    Connection = DataModule1.Conexion
+    ConnectionName = 'Conexion'
     SQL.Strings = (
       'SELECT nombre, precio, foto FROM productos')
-    Left = 184
-    Top = 209
+    Left = 264
+    Top = 337
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = ClientDataSet1
     ScopeMappings = <>
-    Left = 120
-    Top = 393
+    Left = 128
+    Top = 409
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
     Left = 32
-    Top = 385
+    Top = 409
     object LinkFillControlToField1: TLinkFillControlToField
       Category = 'Quick Bindings'
       DataSource = BindSourceDB2
@@ -191,7 +191,7 @@ object FrArticulos: TFrArticulos
   object BindSourceDB2: TBindSourceDB
     DataSet = ClientDataSet1
     ScopeMappings = <>
-    Left = 80
-    Top = 208
+    Left = 88
+    Top = 336
   end
 end

@@ -1,7 +1,7 @@
 object fmClientes: TfmClientes
   Left = 0
   Top = 0
-  ActiveControl = TabItem2
+  ActiveControl = TabItem1
   Caption = 'Clientes'
   ClientHeight = 460
   ClientWidth = 319
@@ -79,6 +79,7 @@ object fmClientes: TfmClientes
       Size.Width = 57.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image1Click
     end
   end
   object StyleBook1: TStyleBook
@@ -573,6 +574,7 @@ object fmClientes: TfmClientes
               Size.Width = 105.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
+              StyleLookup = 'Label2Style1'
               TextSettings.Font.Size = 16.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               TextSettings.FontColor = claWhite
@@ -698,12 +700,12 @@ object fmClientes: TfmClientes
         Size.PlatformDefault = False
         StyleLookup = 'transparentlistboxstyle'
         TabOrder = 3
-        OnClick = lbClientesClick
         DisableFocusEffect = True
         DefaultItemStyles.ItemStyle = ''
         DefaultItemStyles.GroupHeaderStyle = ''
         DefaultItemStyles.GroupFooterStyle = ''
         Sorted = True
+        OnItemClick = lbClientesItemClick
         Viewport.Width = 319.000000000000000000
         Viewport.Height = 287.000000000000000000
       end
@@ -783,7 +785,7 @@ object fmClientes: TfmClientes
         ItemAppearanceObjects.FooterObjects.Text.Width = 282.000000000000000000
         ItemAppearanceObjects.FooterObjects.Text.Height = 28.000000000000000000
         ItemAppearanceObjects.FooterObjects.Text.PlaceOffset.Y = 4.000000000000000000
-        OnItemClickEx = lvClientesItemClickEx
+        OnItemClick = lvClientesItemClick
         SearchVisible = True
       end
     end

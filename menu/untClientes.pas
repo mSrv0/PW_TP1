@@ -39,9 +39,12 @@ type
     FDQuery1: TFDQuery;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure lvClientesItemClickEx(const Sender: TObject; ItemIndex: Integer;
-      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
-    procedure lbClientesClick(Sender: TObject);
+    procedure lvClientesItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure Image1Click(Sender: TObject);
+    procedure lbClientesItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
+
   private
     list: TObjectList<TCliente>;
     procedure ListarClientes;
@@ -62,7 +65,7 @@ implementation
 {$R *.fmx}
 uses untPrincipal, untEditClientes;
 
-procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string;telefono: integer);
+procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string; telefono: integer);
 var
    item: TListBoxItem;
    frame: TClienteCard;
@@ -117,14 +120,6 @@ var cli: TCliente;
 begin
             // Acceder a datos de card clientes
 
-{    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-    AddCliente(0, 'Dir. Teodoro Planas 4141', 'Makro', 111-222-333);
-}
-
 
    for k:= 0 to list.Count - 1 do
       begin
@@ -138,13 +133,14 @@ begin
    //list.Free
 end;
 
-procedure TfmClientes.lvClientesItemClickEx(const Sender: TObject;
-  ItemIndex: Integer; const LocalClickPos: TPointF;
-  const ItemObject: TListItemDrawable);
-var cli: TCliente;
+
+procedure TfmClientes.lvClientesItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+var untEditClientes: TfmEditClientes;
 begin
-   cli:= list[itemindex];
-   ShowMessage('Soy el Cliente: '+ sLineBreak + cli.asString);
+  untEditClientes := TfmEditClientes.Create(Application);
+  untEditClientes.Show;
+
 end;
 
 procedure TfmClientes.FormCreate(Sender: TObject);
@@ -157,11 +153,20 @@ procedure TfmClientes.FormShow(Sender: TObject);
 begin
    ListarClientes;
 end;
-procedure TfmClientes.lbClientesClick(Sender: TObject);
-var untEditClientes: TfmEditClientes;
+
+procedure TfmClientes.Image1Click(Sender: TObject);
 begin
-  untEditClientes := TfmEditClientes.Create(Application);
-  untEditClientes.Show;
+   Self.Close;
 end;
+
+procedure TfmClientes.lbClientesItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
+var untEditClientes: TfmEditClientes;
+
+begin
+   untEditClientes := TfmEditClientes.Create(Item);
+   untEditClientes.inicializar(lbClientes.ListItems[lbClientes.ItemIndex].Tag);
+   untEditClientes.Show;
+end;
+
 // (cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono)
 end.

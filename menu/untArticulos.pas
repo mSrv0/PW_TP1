@@ -30,6 +30,8 @@ type
     BindDBImageLink1: TBindDBImageLink;
     BindSourceDB2: TBindSourceDB;
     procedure FormShow(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
     procedure ListarArticulos;
@@ -61,9 +63,20 @@ begin
    ListarArticulos;
 end;
 
+procedure TFrArticulos.Image1Click(Sender: TObject);
+begin
+   Self.Close;
+end;
+
 procedure TFrArticulos.ListarArticulos;
 begin
+   lvArticulos.Items.CheckedCount()
 
+end;
+
+procedure TFrArticulos.SpeedButton1Click(Sender: TObject);
+begin
+   //lvArticulos.EditMode := not lvArticulos.EditMode;
 end;
 
 end.
