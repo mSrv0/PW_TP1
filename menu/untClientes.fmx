@@ -1,7 +1,7 @@
 object fmClientes: TfmClientes
   Left = 0
   Top = 0
-  ActiveControl = TabItem1
+  ActiveControl = TabItem2
   Caption = 'Clientes'
   ClientHeight = 460
   ClientWidth = 319
@@ -511,7 +511,7 @@ object fmClientes: TfmClientes
     Size.Height = 403.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 3
     TabPosition = PlatformDefault
     Sizes = (
@@ -523,7 +523,7 @@ object fmClientes: TfmClientes
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 159.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -714,7 +714,7 @@ object fmClientes: TfmClientes
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 160.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -748,6 +748,7 @@ object fmClientes: TfmClientes
           item
             AppearanceObjectName = 'txtDomicilio'
             AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextAlign = Leading
             Appearance.Width = 212.000000000000000000
             Appearance.Height = 23.000000000000000000
             Appearance.PlaceOffset.X = 86.000000000000000000
@@ -756,6 +757,7 @@ object fmClientes: TfmClientes
           item
             AppearanceObjectName = 'txtTelefono'
             AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextAlign = Leading
             Appearance.Width = 212.000000000000000000
             Appearance.Height = 21.000000000000000000
             Appearance.PlaceOffset.X = 86.000000000000000000
@@ -767,15 +769,6 @@ object fmClientes: TfmClientes
             Appearance.Width = 73.000000000000000000
             Appearance.Height = 89.000000000000000000
             Appearance.PlaceOffset.X = 12.000000000000000000
-            Appearance.PlaceOffset.Y = 8.000000000000000000
-          end
-          item
-            AppearanceObjectName = 'ButonPut'
-            AppearanceClassName = 'TAccessoryObjectAppearance'
-            Appearance.Width = 36.000000000000000000
-            Appearance.Height = 89.000000000000000000
-            Appearance.PlaceOffset.X = 269.000000000000000000
-            Appearance.PlaceOffset.Y = 12.000000000000000000
           end>
         ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
           item

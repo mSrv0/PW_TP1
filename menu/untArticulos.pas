@@ -13,7 +13,8 @@ uses
   FireDAC.Comp.Client, Data.Bind.Components, Data.Bind.DBScope,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Datasnap.DBClient, Datasnap.Provider,
   System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Grid,
-  Data.Bind.DBLinks, Fmx.Bind.DBLinks;
+  Data.Bind.DBLinks, Fmx.Bind.DBLinks, FMX.TabControl, aUnit
+  ;
 
 type
   TFrArticulos = class(TForm)
@@ -21,21 +22,13 @@ type
     Image1: TImage;
     lvArticulos: TListView;
     QueryArt: TFDQuery;
-    BindSourceDB1: TBindSourceDB;
-    BindingsList1: TBindingsList;
-    ClientDataSet1: TClientDataSet;
-    DataSetProvider1: TDataSetProvider;
-    LinkFillControlToField1: TLinkFillControlToField;
-    BindList1: TBindList;
-    BindDBImageLink1: TBindDBImageLink;
-    BindSourceDB2: TBindSourceDB;
-    procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
   private
     { Private declarations }
-    procedure ListarArticulos;
-    procedure addArticulo(nombre: string; precio: Currency);
+    procedure addlvArticulos(art: TArticulos; const indice: integer);
+    procedure listado_Art;
   public
     { Public declarations }
   end;
@@ -50,17 +43,25 @@ implementation
 uses moduloDatos_u;
 
 
-procedure TFrArticulos.addArticulo(nombre: string; precio: Currency);
+procedure TFrArticulos.addlvArticulos(art: TArticulos; const indice: Integer);
 var item: TListViewItem;
 begin
-   item:= lvArticulos.Items.Add;
-
+    item:= lvArticulos.Items.AddItem(indice);
+    item.Tag := art.Id;
+    item.Data['txtNombreP']:= art.Nombre;
+    item.Data['txtPrecio']:= art.Precio;
+    item.Data['imgArticulo']:= art.Foto;
 end;
 
 
+{procedure TFrArticulos.FormCreate(Sender: TObject);
+begin
+   list:= listado_Articulos;
+end;}
+
 procedure TFrArticulos.FormShow(Sender: TObject);
 begin
-   ListarArticulos;
+   listado_Art;
 end;
 
 procedure TFrArticulos.Image1Click(Sender: TObject);
@@ -68,15 +69,9 @@ begin
    Self.Close;
 end;
 
-procedure TFrArticulos.ListarArticulos;
+procedure TFrArticulos.listado_Art;
 begin
-   lvArticulos.Items.CheckedCount()
-
-end;
-
-procedure TFrArticulos.SpeedButton1Click(Sender: TObject);
-begin
-   //lvArticulos.EditMode := not lvArticulos.EditMode;
+   aUnit.listado_Articulos()
 end;
 
 end.

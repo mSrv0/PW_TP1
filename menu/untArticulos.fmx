@@ -95,22 +95,27 @@ object FrArticulos: TFrArticulos
         AppearanceObjectName = 'txtNombreP'
         AppearanceClassName = 'TTextObjectAppearance'
         Appearance.Font.Size = 22.000000000000000000
+        Appearance.Font.StyleExt = {00070000000000000004000000}
         Appearance.Width = 295.000000000000000000
         Appearance.Height = 28.000000000000000000
-        Appearance.PlaceOffset.Y = 91.000000000000000000
+        Appearance.PlaceOffset.Y = 101.000000000000000000
       end
       item
         AppearanceObjectName = 'txtPrecio'
         AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Font.Family = 'Roboto'
+        Appearance.Font.Size = 20.000000000000000000
+        Appearance.Font.StyleExt = {00070000000000000004000000}
+        Appearance.TextColor = xFFE50808
         Appearance.Width = 295.000000000000000000
-        Appearance.Height = 20.000000000000000000
-        Appearance.PlaceOffset.Y = 119.000000000000000000
+        Appearance.Height = 21.000000000000000000
+        Appearance.PlaceOffset.Y = 129.000000000000000000
       end
       item
         AppearanceObjectName = 'imgArticulo'
         AppearanceClassName = 'TImageObjectAppearance'
         Appearance.Width = 153.000000000000000000
-        Appearance.Height = 93.000000000000000000
+        Appearance.Height = 101.000000000000000000
         Appearance.Align = Center
         Appearance.PlaceOffset.X = -6.000000000000000000
       end>
@@ -127,71 +132,8 @@ object FrArticulos: TFrArticulos
   object QueryArt: TFDQuery
     ConnectionName = 'Conexion'
     SQL.Strings = (
-      'SELECT nombre, precio, foto FROM productos')
-    Left = 264
-    Top = 337
-  end
-  object BindSourceDB1: TBindSourceDB
-    DataSet = ClientDataSet1
-    ScopeMappings = <>
-    Left = 128
-    Top = 409
-  end
-  object BindingsList1: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 32
-    Top = 409
-    object LinkFillControlToField1: TLinkFillControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      Control = lvArticulos
-      Track = True
-      FillDataSource = BindSourceDB1
-      AutoFill = True
-      FillExpressions = <
-        item
-          SourceMemberName = 'nombre'
-          ControlMemberName = 'txtNombreP'
-        end
-        item
-          SourceMemberName = 'precio'
-          ControlMemberName = 'txtPrecio'
-        end
-        item
-          SourceMemberName = 'foto'
-          ControlMemberName = 'imgArticulo'
-        end>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
-    object BindList1: TBindList
-      Category = 'Lists'
-      FormatExpressions = <>
-      FormatControlExpressions = <>
-      ClearControlExpressions = <>
-    end
-    object BindDBImageLink1: TBindDBImageLink
-      Category = 'DB Links (deprecated)'
-    end
-  end
-  object ClientDataSet1: TClientDataSet
-    Active = True
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'DataSetProvider1'
-    Left = 176
-    Top = 337
-  end
-  object DataSetProvider1: TDataSetProvider
-    DataSet = QueryArt
-    Left = 240
-    Top = 393
-  end
-  object BindSourceDB2: TBindSourceDB
-    DataSet = ClientDataSet1
-    ScopeMappings = <>
+      'SELECT * FROM productos')
     Left = 88
-    Top = 336
+    Top = 433
   end
 end

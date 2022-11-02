@@ -48,50 +48,42 @@ type
   private
     list: TObjectList<TCliente>;
     procedure ListarClientes;
-    procedure AddClientelb(Cid: integer; direccion, nombre: string; telefono: integer);
-    procedure AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
+    procedure AddClientelb(cli: TCliente);
+    procedure AddClientelv(cli: TCliente; const indice: integer);
+    procedure pintar_datos_cliente(item: TListBoxItem; cli: TCliente);
+    procedure pintar_cliente(item: TListViewItem; cli: TCliente);
 
     { Private declarations }
   public
     { Public declarations }
-    FFrame: TClienteCard;
+    fframe: TClienteCard;
   end;
 
 var
   fmClientes: TfmClientes;
+
 
 implementation
 
 {$R *.fmx}
 uses untPrincipal, untEditClientes;
 
-procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string; telefono: integer);
+procedure TfmClientes.AddClientelb(cli: TCliente);
 var
    item: TListBoxItem;
-   frame: TClienteCard;
 begin
    item:= TListBoxItem.Create(lbClientes);
    item.Selectable := false;
+   item.Tag := cli.Id;
    item.Text := '';
    item.Height := 200;
-   item.Tag := Cid;
-
-
-   // ACA SE MUESTRAN LOS MARCOS/CARDS
-    frame := TClienteCard.Create(item);
-    //frame.imgTienda;
-    frame.lbNombre.Text := nombre;
-    frame.lbUbi.Text := direccion;
-    frame.lbTel.Text := telefono.ToString;
-
-    item.AddObject(frame);
-
+   pintar_datos_cliente(item, cli);
    lbClientes.AddObject(item);
 end;
 
 
        //Agrega listado de clientes a listview
-procedure TfmClientes.AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
+procedure TfmClientes.AddClientelv(cli: TCliente; const indice: integer);
 
    function par(n: integer): boolean;
    begin
@@ -102,54 +94,81 @@ var
    item: TListViewItem;
 begin
    item:= lvClientes.Items.AddItem(indice);
-   item.Data['txtRazon_Social']:= nombre;
-   item.Data['txtDomicilio']:= direccion;
-   item.Data['txtTelefono']:= telefono;
+   item.Tag := cli.Id;
+   item.Data['txtRazon_Social']:= cli.RazonSocial;
+   item.Data['txtDomicilio']:= cli.Domicilio;
+   item.Data['txtTelefono']:= cli.Telefono;
    if (par(indice)) then
       item.Data['imgLocal']:= fframe.imgTienda.Bitmap
    else
       item.Data['imgLocal']:= fframe.imgTienda.Bitmap;
-   item.Tag := Cid;
 end;
 
 
       //INICIA RECORRIDO Y CARGA DE CLIENTES A LISTBOX
 procedure TfmClientes.ListarClientes;
-var cli: TCliente;
-    k: Integer;
+var k: Integer;
 begin
             // Acceder a datos de card clientes
-
-
    for k:= 0 to list.Count - 1 do
       begin
-      cli:= list[k];
       //pinto el cliente
-      AddClientelb(cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono);
-      AddClientelv(cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono, k);
+      AddClientelb(list[k]);
+      AddClientelv(list[k], k);
       end;
 
    //libero el listado
    //list.Free
 end;
 
+                      //SE AGREGAN AL EDIT LIST VIEW
 
 procedure TfmClientes.lvClientesItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 var untEditClientes: TfmEditClientes;
 begin
-  untEditClientes := TfmEditClientes.Create(Application);
-  untEditClientes.Show;
+  untEditClientes := TfmEditClientes.Create(nil);
+  untEditClientes.inicializar(list[lvClientes.ItemIndex]);
+  untEditClientes.ShowModal(
+       procedure(ModalResult: TModalResult)
+      var ok: Boolean;
+         begin
+         ok:= ModalResult = mrOk;
+         if ok then
+         begin
+            pintar_cliente(lvClientes.Items[lvClientes.ItemIndex], untEditClientes.FCli);
+         end;
+            untEditClientes.Close;
+         end);
+end;
+
+
+procedure TfmClientes.pintar_cliente(item: TListViewItem; cli: TCliente);
+begin
+   item.Text:= cli.RazonSocial + sLineBreak +
+               cli.Domicilio + sLineBreak +
+               cli.Telefono.ToString;
+end;
+
+// LIST BOX
+procedure TfmClientes.pintar_datos_cliente(item: TListBoxItem; cli: TCliente);
+//var  frame: TClienteCard;
+begin
+   item.Text:= cli.RazonSocial + sLineBreak +
+               cli.Domicilio + sLineBreak +
+               cli.Telefono.ToString;
 
 end;
+
 
 procedure TfmClientes.FormCreate(Sender: TObject);
 begin
    list:= listado_clientes;
-   FFrame:= TClienteCard.Create(nil);
+   fframe:= TClienteCard.Create(nil);
 end;
 
 procedure TfmClientes.FormShow(Sender: TObject);
+var untEditClientes: TfmEditClientes;
 begin
    ListarClientes;
 end;
@@ -159,14 +178,26 @@ begin
    Self.Close;
 end;
 
-procedure TfmClientes.lbClientesItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
-var untEditClientes: TfmEditClientes;
 
+procedure TfmClientes.lbClientesItemClick(const Sender: TCustomListBox;
+         const Item: TListBoxItem);
+var untEditClientes: TfmEditClientes;
 begin
    untEditClientes := TfmEditClientes.Create(Item);
-   untEditClientes.inicializar(lbClientes.ListItems[lbClientes.ItemIndex].Tag);
-   untEditClientes.Show;
+   untEditClientes.inicializar(list[lbClientes.ItemIndex]);
+   untEditClientes.ShowModal(
+       procedure(ModalResult: TModalResult)
+       var ok: Boolean;
+         begin
+         ok:= ModalResult = mrOk;
+         if ok then
+            begin
+            pintar_datos_cliente(lbClientes.ListItems[lbClientes.ItemIndex], untEditClientes.FCli);
+            end;
+         untEditClientes.Close;
+         end
+   );
+
 end;
 
-// (cli.Id, cli.Domicilio, cli.RazonSocial, cli.Telefono)
 end.
