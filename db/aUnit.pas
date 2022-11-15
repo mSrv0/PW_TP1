@@ -165,6 +165,7 @@ begin
   // Inicia carga de los articulos
   ANombre:= fdqA.FieldByName('nombre').AsString;
   APrecio:= fdqA.FieldByName('precio').AsCurrency;
+
   TBlobField(fdqA.FieldByName('foto')).SaveToStream(AFoto);
 
   DataModule1.liberarFDQ(fdqA)
@@ -173,11 +174,6 @@ end;
 procedure TArticulos.modificar;
 begin
    update
-end;
-
-procedure TArticulos.setFoto(const Value: TMemoryStream);
-begin
-
 end;
 
 procedure TArticulos.setNombre(const Value: string);
@@ -190,10 +186,11 @@ begin
    APrecio:=Value;
 end;
 
-{procedure TArticulos.setFoto(const Value: TMemoryStream);
+procedure TArticulos.setFoto(const Value: TMemoryStream);
 begin
-   AFoto:=Value;
-end;}
+   AFoto:= Value;
+end;
+
 
 procedure TArticulos.update;
 var fdq: TFDQuery;
@@ -203,7 +200,7 @@ begin
    fdq.ParamByName('id').AsInteger:= Aid;
    fdq.ParamByName('nombre').AsString:= ANombre;
    fdq.ParamByName('precio').AsCurrency:= APrecio;
-   //fdq.ParamByName('foto').AsStream:= AFoto;
+   fdq.ParamByName('foto').AsStream:= AFoto;
    fdq.ExecSQL;
    DataModule1.liberarFDQ(fdq)
 end;

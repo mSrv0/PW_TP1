@@ -1,7 +1,4 @@
-﻿[QueryArt]
-Coordinates=306,280,66,36
-
-[lvArticulos]
+﻿[lvArticulos]
 Coordinates=680,250,107,234
 
 [Label1]
@@ -11,7 +8,7 @@ Coordinates=250,140,53,58
 Coordinates=340,140,57,58
 
 []
-Coordinates=126,56,85,36
+Coordinates=306,280,66,36
 Visible=True
 
 [Module Settings]

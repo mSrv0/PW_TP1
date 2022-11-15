@@ -11,7 +11,6 @@ object fmClientes: TfmClientes
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  OnShow = FormShow
   DesignerMasterStyle = 3
   object Label1: TLabel
     Align = Top

@@ -13,7 +13,7 @@ uses
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider,
   Datasnap.DBClient, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  logUnit;
+  logUnit, System.Notification;
 
 type
   TFmPrincipal = class(TForm)
@@ -41,6 +41,7 @@ type
     imgUbic: TImage;
     imgTel: TImage;
     ac_CerrarSesion: TAction;
+    NotificationCenter: TNotificationCenter;
     procedure ImgMenuClick(Sender: TObject);
     procedure backMenuClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -56,6 +57,7 @@ type
   private
     { Private declarations }
     FUsuarioLogueado: TUsuario;
+    procedure SetupNotificationChannel;
   public
     { Public declarations }
     procedure inicializar(const idUsu: Integer);
@@ -178,5 +180,27 @@ begin
   FUsuarioLogueado.load(idUsu);
   LBL_Usuario.Text:= ('Bienvenido/a ' + FUsuarioLogueado.asString)
 end;
+
+
+
+
+
+procedure TFmPrincipal.SetupNotificationChannel;
+var
+  LChannel: TChannel;
+  Noti: TNotification;
+begin
+  LChannel := NotificationCenter.CreateChannel;
+  try
+    LChannel.Id := 'MyChannel';
+    LChannel.Title := LChannel.Id;
+    LChannel.Importance := TImportance.High;
+    NotificationCenter.CreateOrUpdateChannel(LChannel);
+  finally
+    LChannel.Free;
+  end;
+
+end;
+
 
 end.

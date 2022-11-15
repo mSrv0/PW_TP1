@@ -8,6 +8,7 @@ object FrArticulos: TFrArticulos
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   OnShow = FormShow
   DesignerMasterStyle = 3
   object Label1: TLabel
@@ -128,12 +129,5 @@ object FrArticulos: TFrArticulos
     ItemAppearanceObjects.FooterObjects.Text.Height = 48.000000000000000000
     StyleLookup = 'lvArticulosStyle1'
     SearchVisible = True
-  end
-  object QueryArt: TFDQuery
-    ConnectionName = 'Conexion'
-    SQL.Strings = (
-      'SELECT * FROM productos')
-    Left = 88
-    Top = 433
   end
 end
