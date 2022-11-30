@@ -1,0 +1,42 @@
+inherited fmLista_LgXhdpiPh: TfmLista_LgXhdpiPh
+  ClientHeight = 695
+  ClientWidth = 450
+  DesignerMasterStyle = 3
+  inherited TabControl1: TTabControl
+    Size.Width = 450.000000000000000000
+    Size.Height = 695.000000000000000000
+    Sizes = (
+      450s
+      695s
+      450s
+      695s)
+    inherited TabItem1: TTabItem
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      inherited btnLoad: TCornerButton
+        Position.Y = 651.000000000000000000
+        Size.Width = 450.000000000000000000
+        inherited lblStatus: TLabel
+          Position.X = 368.000000000000000000
+        end
+      end
+      inherited stg_Data: TStringGrid
+        Size.Width = 450.000000000000000000
+        Size.Height = 651.000000000000000000
+        Viewport.Width = 450.000000000000000000
+        Viewport.Height = 651.000000000000000000
+        inherited StringColumn1: TStringColumn
+          Enabled = False
+          Size.Width = 250.000000000000000000
+        end
+        inherited StringColumn2: TStringColumn
+          Size.Width = 150.000000000000000000
+        end
+      end
+    end
+    inherited TabItem2: TTabItem
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+    end
+  end
+end

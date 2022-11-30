@@ -5,7 +5,20 @@ object FmPrincipal: TFmPrincipal
   Caption = 'ac_CerrarSesion'
   ClientHeight = 503
   ClientWidth = 349
-  Fill.Kind = Solid
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = claBlack
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = claWhite
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.500000000000000000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.499999970197677600
+  Fill.Gradient.StopPosition.Y = 0.000000000000000000
   StyleBook = StyleBook1
   Transparency = True
   Visible = True
@@ -1569,11 +1582,41 @@ object FmPrincipal: TFmPrincipal
         end>
       Align = Right
       Position.X = 288.000000000000000000
-      Position.Y = 353.000000000000000000
+      Position.Y = 406.000000000000000000
       Size.Width = 13.000000000000000000
-      Size.Height = 97.000000000000000000
+      Size.Height = 44.000000000000000000
       Size.PlatformDefault = False
       OnClick = Image1Click
+    end
+    object Rectangle2: TRectangle
+      Align = Top
+      Fill.Color = claWhite
+      Margins.Top = 3.000000000000000000
+      Position.Y = 356.000000000000000000
+      Sides = [Left, Bottom, Right]
+      Size.Width = 301.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFF11AC0A
+      OnClick = Rectangle2Click
+      object Label2: TLabel
+        Align = Center
+        AutoSize = True
+        AutoTranslate = False
+        StyledSettings = []
+        Margins.Left = 15.000000000000000000
+        Margins.Right = 15.000000000000000000
+        Size.Width = 328.000000000000000000
+        Size.Height = 27.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Segoe UI Symbol'
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF373535
+        TextSettings.HorzAlign = Center
+        Text = 'Listas'
+        TabOrder = 3
+      end
     end
   end
   object imgLocal: TImage

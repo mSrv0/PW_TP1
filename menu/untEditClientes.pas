@@ -111,7 +111,7 @@ begin
    //cargo sus datos
    FCli.Domicilio:= ed_Domicilio.Text;
    FCli.Localidad:= ed_Localidad.Text;
-   FCli.Telefono:= Trunc(nb_Telefono.Value);
+   FCli.Telefono:= nb_Telefono.Text;
    FCli.Email:= ed_Email.Text;
 
    MessageDlg('¿Desea guardar los cambior realizados?',
@@ -158,13 +158,13 @@ begin
    lb_Domicilio.Text := FCli.Domicilio;
    lb_Localidad.Text := FCli.Localidad;
    lb_Telefono.ToString;
-   lb_Telefono.Text := FCli.Telefono.ToString;
+   lb_Telefono.Text := FCli.Telefono;
    lb_Email.Text := FCli.Email;
 
    ed_Domicilio.Text:= FCli.Domicilio;
    ed_Localidad.Text := FCli.Localidad;
    nb_Telefono.ToString;
-   nb_Telefono.Text := FCli.Telefono.ToString;
+   nb_Telefono.Text := FCli.Telefono;
    ed_Email.Text := FCli.Email;
 end;
 

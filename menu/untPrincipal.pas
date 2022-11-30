@@ -41,6 +41,8 @@ type
     imgUbic: TImage;
     imgTel: TImage;
     ac_CerrarSesion: TAction;
+    Rectangle2: TRectangle;
+    Label2: TLabel;
     procedure ImgMenuClick(Sender: TObject);
     procedure backMenuClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -53,6 +55,7 @@ type
     procedure ac_CerrarSesionExecute(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure Rectangle2Click(Sender: TObject);
   private
     { Private declarations }
     FUsuarioLogueado: TUsuario;
@@ -65,7 +68,7 @@ var
   FmPrincipal: TFmPrincipal;
 
 implementation
- uses UnitLogin, untClientes, untArticulos;
+ uses UnitLogin, untClientes, untArticulos, untLista;
 {$R *.fmx}
 
 
@@ -102,14 +105,20 @@ begin
     untClientes.Show;
 end;
 
-         //FUNCION ONCLICK AL APARTADO ARTICULOS
+procedure TFmPrincipal.Rectangle2Click(Sender: TObject);
+var untLista : TfmLista;
+begin
+    untLista := TfmLista.Create(Application);
+    untLista.Show;
+end;
+
+//FUNCION ONCLICK AL APARTADO ARTICULOS
 
 procedure TFmPrincipal.Rectangle3Click(Sender: TObject);
 var untArticulos :  TFrArticulos;
 begin
    untArticulos := TFrArticulos.Create(Application);
    untArticulos.Show;
-
 end;
 
 

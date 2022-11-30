@@ -54,7 +54,6 @@ procedure TFrArticulos.addArticulo(nombre: string; precio: Currency);
 var item: TListViewItem;
 begin
    item:= lvArticulos.Items.Add;
-
 end;
 
 
@@ -71,7 +70,6 @@ end;
 procedure TFrArticulos.ListarArticulos;
 begin
    lvArticulos.Items.CheckedCount()
-
 end;
 
 procedure TFrArticulos.SpeedButton1Click(Sender: TObject);

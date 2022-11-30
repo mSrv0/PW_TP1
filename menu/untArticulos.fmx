@@ -176,7 +176,6 @@ object FrArticulos: TFrArticulos
     end
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'

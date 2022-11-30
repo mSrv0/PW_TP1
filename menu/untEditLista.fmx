@@ -1,0 +1,139 @@
+object fmEditLista: TfmEditLista
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 551
+  ClientWidth = 321
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object rec_Domicilio: TRectangle
+    Align = Top
+    Fill.Color = claNull
+    Margins.Bottom = 20.000000000000000000
+    Position.Y = 135.000000000000000000
+    Size.Width = 321.000000000000000000
+    Size.Height = 115.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claNull
+    object ed_Domicilio: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 6
+      Size.Width = 321.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lb_Domicilio: TLabel
+      Align = Top
+      Size.Width = 321.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+  end
+  object rec_Botones: TRectangle
+    Align = MostBottom
+    Fill.Color = claWhite
+    Position.Y = 502.000000000000000000
+    Size.Width = 321.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claNull
+    object bt_Cambiar: TButton
+      Align = Right
+      Position.X = 161.000000000000000000
+      Size.Width = 160.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Cambiar'
+      OnClick = bt_CambiarClick
+    end
+    object bt_Cancelar: TButton
+      Align = Left
+      Size.Width = 153.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = 'Cancelar'
+      OnClick = bt_CancelarClick
+    end
+  end
+  object rec_Email: TRectangle
+    Align = Top
+    Fill.Color = claNull
+    Margins.Bottom = 20.000000000000000000
+    Position.Y = 270.000000000000000000
+    Size.Width = 321.000000000000000000
+    Size.Height = 115.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claNull
+    object ed_Email: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 3
+      Size.Width = 321.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lb_Email: TLabel
+      Align = Top
+      Size.Width = 321.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object rec_RazonSocial: TRectangle
+    Align = Top
+    Fill.Color = claNull
+    Margins.Bottom = 20.000000000000000000
+    Size.Width = 321.000000000000000000
+    Size.Height = 115.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claNull
+    object ed_RazonSocial: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 7
+      Size.Width = 321.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lb_RazonSocial: TLabel
+      Align = Top
+      Size.Width = 321.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+    end
+  end
+  object rec_Telefono: TRectangle
+    Align = Top
+    Fill.Color = claNull
+    Margins.Bottom = 20.000000000000000000
+    Position.Y = 405.000000000000000000
+    Size.Width = 321.000000000000000000
+    Size.Height = 115.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claNull
+    object ed_Telefono: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 4
+      Size.Width = 321.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lb_Telefono: TLabel
+      Align = Top
+      Size.Width = 321.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
+  end
+end

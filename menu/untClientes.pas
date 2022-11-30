@@ -48,8 +48,8 @@ type
   private
     list: TObjectList<TCliente>;
     procedure ListarClientes;
-    procedure AddClientelb(Cid: integer; direccion, nombre: string; telefono: integer);
-    procedure AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
+    procedure AddClientelb(Cid: integer; direccion, nombre: string; telefono: string);
+    procedure AddClientelv(Cid: integer; direccion, nombre: string; telefono: string; const indice: integer);
 
     { Private declarations }
   public
@@ -65,7 +65,7 @@ implementation
 {$R *.fmx}
 uses untPrincipal, untEditClientes;
 
-procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string; telefono: integer);
+procedure TfmClientes.AddClientelb(Cid: integer; direccion, nombre: string; telefono: string);
 var
    item: TListBoxItem;
    frame: TClienteCard;
@@ -82,7 +82,7 @@ begin
     //frame.imgTienda;
     frame.lbNombre.Text := nombre;
     frame.lbUbi.Text := direccion;
-    frame.lbTel.Text := telefono.ToString;
+    frame.lbTel.Text := telefono;
 
     item.AddObject(frame);
 
@@ -91,7 +91,7 @@ end;
 
 
        //Agrega listado de clientes a listview
-procedure TfmClientes.AddClientelv(Cid: integer; direccion, nombre: string; telefono: double; const indice: integer);
+procedure TfmClientes.AddClientelv(Cid: integer; direccion, nombre: string; telefono: string; const indice: integer);
 
    function par(n: integer): boolean;
    begin
@@ -140,7 +140,6 @@ var untEditClientes: TfmEditClientes;
 begin
   untEditClientes := TfmEditClientes.Create(Application);
   untEditClientes.Show;
-
 end;
 
 procedure TfmClientes.FormCreate(Sender: TObject);

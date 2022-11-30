@@ -1,0 +1,100 @@
+object fmLista: TfmLista
+  Left = 0
+  Top = 0
+  ClientHeight = 494
+  ClientWidth = 351
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 351.000000000000000000
+    Size.Height = 494.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = None
+    Sizes = (
+      351s
+      494s
+      351s
+      494s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object btnLoad: TCornerButton
+        Align = MostBottom
+        Position.Y = 450.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 351.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Cargar'
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+        OnClick = btnLoadClick
+        object lblStatus: TLabel
+          Align = Right
+          Position.X = 269.000000000000000000
+          Size.Width = 82.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 90
+        end
+      end
+      object stg_Data: TStringGrid
+        Align = Client
+        CanFocus = True
+        ClipChildren = True
+        Size.Width = 351.000000000000000000
+        Size.Height = 450.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, CancelEditingByDefault, AutoDisplacement]
+        OnCellClick = stg_DataCellClick
+        Viewport.Width = 346.000000000000000000
+        Viewport.Height = 413.000000000000000000
+        object StringColumn1: TStringColumn
+          Header = 'RazonSocial'
+          Size.Width = 250.000000000000000000
+        end
+        object StringColumn2: TStringColumn
+          HorzAlign = Center
+          Header = 'Codigo'
+          Size.Width = 150.000000000000000000
+        end
+        object sc_id: TStringColumn
+          Visible = False
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+    end
+  end
+end
