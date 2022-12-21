@@ -43,15 +43,15 @@ type
     procedure btn_CancelarClick(Sender: TObject);
 
 
-
   private
-   var FCli: TCliente;
+
 
 
     { Private declarations }
   public
     { Public declarations }
-    procedure inicializar(id: Integer);
+    FCli: TCliente;
+    procedure inicializar(cli: TCliente);
   end;
 
 var
@@ -108,11 +108,7 @@ begin
 
    //pasò las validaciones
 
-   //cargo sus datos
-   FCli.Domicilio:= ed_Domicilio.Text;
-   FCli.Localidad:= ed_Localidad.Text;
-   FCli.Telefono:= nb_Telefono.Text;
-   FCli.Email:= ed_Email.Text;
+
 
    MessageDlg('¿Desea guardar los cambior realizados?',
                    System.UITypes.TMsgDlgType.mtConfirmation, FMx.Dialogs.mbYesNo, 0,
@@ -121,13 +117,20 @@ begin
                      case AResult of
                      mrYES:   begin
                               //... comienza el guardado de los datos del cliente
+                                 //cargo sus datos
+                              FCli.Domicilio:= ed_Domicilio.Text;
+                              FCli.Localidad:= ed_Localidad.Text;
+                              FCli.Telefono:= Trunc(nb_Telefono.Value);
+                              FCli.Email:= ed_Email.Text;
                               FCli.modificar;
-                              Close;
+                              ModalResult:= mrOk;
+
                               end;
                      mrNo:    Exit;
-                     else     Exit;
+
                      end;
                  end);
+
 end;
 
 procedure TfmEditClientes.btn_CancelarClick(Sender: TObject);
@@ -137,38 +140,37 @@ begin
                    procedure(const AResult: System.UITypes.TModalResult)
                      begin
                      case AResult of
-                     mrYES: Close;
+                     mrYES: begin ModalResult:= mrCancel; end;
                      mrNo:    Exit;
                      else     Exit;
                      end;
                  end);
 end;
 
+
 procedure TfmEditClientes.img_BackCliClick(Sender: TObject);
 begin
-   Self.Close;
+   btn_Cancelar.OnClick(sender)
 end;
 
-procedure TfmEditClientes.inicializar(id: Integer);
+procedure TfmEditClientes.inicializar(cli: TCliente);
 begin
-   FCli:= TCliente.Create;
-   FCli.cargar(id);
+   FCli:= cli; //TCliente.Create;
+   //FCli.cargar(id);
    //cargo los datos a editar
    lb_RazonSocial.Text:= Fcli.RazonSocial;
    lb_Domicilio.Text := FCli.Domicilio;
    lb_Localidad.Text := FCli.Localidad;
    lb_Telefono.ToString;
-   lb_Telefono.Text := FCli.Telefono;
+   lb_Telefono.Text := FCli.Telefono.ToString;
    lb_Email.Text := FCli.Email;
 
    ed_Domicilio.Text:= FCli.Domicilio;
    ed_Localidad.Text := FCli.Localidad;
    nb_Telefono.ToString;
-   nb_Telefono.Text := FCli.Telefono;
+   nb_Telefono.Text := FCli.Telefono.ToString;
    ed_Email.Text := FCli.Email;
 end;
-
-
 
 
 end.

@@ -13,7 +13,7 @@ uses
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider,
   Datasnap.DBClient, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  logUnit;
+  logUnit, System.Notification;
 
 type
   TFmPrincipal = class(TForm)
@@ -41,8 +41,7 @@ type
     imgUbic: TImage;
     imgTel: TImage;
     ac_CerrarSesion: TAction;
-    Rectangle2: TRectangle;
-    Label2: TLabel;
+    NotificationCenter: TNotificationCenter;
     procedure ImgMenuClick(Sender: TObject);
     procedure backMenuClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -55,10 +54,10 @@ type
     procedure ac_CerrarSesionExecute(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
-    procedure Rectangle2Click(Sender: TObject);
   private
     { Private declarations }
     FUsuarioLogueado: TUsuario;
+    procedure SetupNotificationChannel;
   public
     { Public declarations }
     procedure inicializar(const idUsu: Integer);
@@ -68,7 +67,7 @@ var
   FmPrincipal: TFmPrincipal;
 
 implementation
- uses UnitLogin, untClientes, untArticulos, untLista;
+ uses UnitLogin, untClientes, untArticulos;
 {$R *.fmx}
 
 
@@ -105,20 +104,14 @@ begin
     untClientes.Show;
 end;
 
-procedure TFmPrincipal.Rectangle2Click(Sender: TObject);
-var untLista : TfmLista;
-begin
-    untLista := TfmLista.Create(Application);
-    untLista.Show;
-end;
-
-//FUNCION ONCLICK AL APARTADO ARTICULOS
+         //FUNCION ONCLICK AL APARTADO ARTICULOS
 
 procedure TFmPrincipal.Rectangle3Click(Sender: TObject);
 var untArticulos :  TFrArticulos;
 begin
    untArticulos := TFrArticulos.Create(Application);
    untArticulos.Show;
+
 end;
 
 
@@ -187,5 +180,27 @@ begin
   FUsuarioLogueado.load(idUsu);
   LBL_Usuario.Text:= ('Bienvenido/a ' + FUsuarioLogueado.asString)
 end;
+
+
+
+
+
+procedure TFmPrincipal.SetupNotificationChannel;
+var
+  LChannel: TChannel;
+  Noti: TNotification;
+begin
+  LChannel := NotificationCenter.CreateChannel;
+  try
+    LChannel.Id := 'MyChannel';
+    LChannel.Title := LChannel.Id;
+    LChannel.Importance := TImportance.High;
+    NotificationCenter.CreateOrUpdateChannel(LChannel);
+  finally
+    LChannel.Free;
+  end;
+
+end;
+
 
 end.

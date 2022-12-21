@@ -1403,7 +1403,7 @@ object fmEditClientes: TfmEditClientes
       Align = Top
       TabOrder = 2
       Cursor = crIBeam
-      Max = 99999999999999.000000000000000000
+      Max = 999999999999999.000000000000000000
       Position.Y = 295.000000000000000000
       Size.Width = 466.000000000000000000
       Size.Height = 32.000000000000000000

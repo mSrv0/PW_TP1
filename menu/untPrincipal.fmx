@@ -2825,4 +2825,8 @@ object FmPrincipal: TFmPrincipal
       OnExecute = ac_CerrarSesionExecute
     end
   end
+  object NotificationCenter: TNotificationCenter
+    Left = 120
+    Top = 216
+  end
 end
